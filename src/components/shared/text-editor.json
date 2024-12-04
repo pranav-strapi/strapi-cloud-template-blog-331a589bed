@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_text_editors",
+  "info": {
+    "displayName": "DocumentEditor",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

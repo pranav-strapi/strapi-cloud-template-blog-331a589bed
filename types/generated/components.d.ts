@@ -15,10 +15,29 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTextEditor extends Struct.ComponentSchema {
+  collectionName: 'components_shared_text_editors';
+  info: {
+    description: '';
+    displayName: 'DocumentEditor';
+    icon: 'bulletList';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.seo': SharedSeo;
+      'shared.text-editor': SharedTextEditor;
     }
   }
 }
