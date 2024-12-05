@@ -9,11 +9,8 @@
     "header": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "blocks"
-    },
-    "FooterLinks": {
-      "type": "string"
     },
     "image": {
       "type": "media",
@@ -25,6 +22,11 @@
         "videos",
         "audios"
       ]
+    },
+    "footer": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.footer-link"
     }
   }
 }
