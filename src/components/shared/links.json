@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_links",
+  "info": {
+    "displayName": "Links"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "types": {
+      "type": "enumeration",
+      "enum": [
+        "quickLinks",
+        "footerLinks"
+      ]
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}
