@@ -1,5 +1,19 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedLinks extends Struct.ComponentSchema {
+  collectionName: 'components_shared_links';
+  info: {
+    description: '';
+    displayName: 'Links';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images', true>;
+    label: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    types: Schema.Attribute.Enumeration<['quickLinks', 'footerLinks']>;
+  };
+}
+
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
@@ -18,6 +32,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.links': SharedLinks;
       'shared.seo': SharedSeo;
     }
   }
