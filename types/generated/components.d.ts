@@ -4,26 +4,18 @@ export interface SharedBookASeat extends Struct.ComponentSchema {
   collectionName: 'components_shared_book_a_seats';
   info: {
     description: '';
-    displayName: 'homeLayout';
+    displayName: 'links';
   };
   attributes: {
-    description: Schema.Attribute.Blocks;
-    footer: Schema.Attribute.Component<'shared.footer-link', true>;
-    header: Schema.Attribute.String;
     image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
-  };
-}
-
-export interface SharedFooterLink extends Struct.ComponentSchema {
-  collectionName: 'components_shared_footer_links';
-  info: {
-    displayName: 'Footer Link';
-  };
-  attributes: {
-    links: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    types: Schema.Attribute.Enumeration<
+      ['quickLinks', 'footerLinks', 'dropdownLinks', 'centerLinks']
+    >;
   };
 }
 
@@ -46,7 +38,6 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.book-a-seat': SharedBookASeat;
-      'shared.footer-link': SharedFooterLink;
       'shared.seo': SharedSeo;
     }
   }

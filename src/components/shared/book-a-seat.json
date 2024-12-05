@@ -1,16 +1,13 @@
 {
   "collectionName": "components_shared_book_a_seats",
   "info": {
-    "displayName": "homeLayout",
+    "displayName": "links",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "header": {
+    "title": {
       "type": "string"
-    },
-    "description": {
-      "type": "blocks"
     },
     "image": {
       "type": "media",
@@ -23,10 +20,17 @@
         "audios"
       ]
     },
-    "footer": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.footer-link"
+    "link": {
+      "type": "string"
+    },
+    "types": {
+      "type": "enumeration",
+      "enum": [
+        "quickLinks",
+        "footerLinks",
+        "dropdownLinks",
+        "centerLinks"
+      ]
     }
   }
 }
