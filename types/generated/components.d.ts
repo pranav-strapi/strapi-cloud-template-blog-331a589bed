@@ -1,5 +1,22 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedBookASeat extends Struct.ComponentSchema {
+  collectionName: 'components_shared_book_a_seats';
+  info: {
+    description: '';
+    displayName: 'homeLayout';
+  };
+  attributes: {
+    Description: Schema.Attribute.Blocks;
+    FooterLinks: Schema.Attribute.String;
+    header: Schema.Attribute.String;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+  };
+}
+
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
@@ -18,6 +35,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.book-a-seat': SharedBookASeat;
       'shared.seo': SharedSeo;
     }
   }
