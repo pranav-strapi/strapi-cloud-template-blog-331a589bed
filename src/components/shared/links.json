@@ -1,19 +1,21 @@
 {
   "collectionName": "components_shared_links",
   "info": {
-    "displayName": "Links"
+    "displayName": "Links",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
+    "label": {
       "type": "string"
     },
     "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "types": {
       "type": "enumeration",

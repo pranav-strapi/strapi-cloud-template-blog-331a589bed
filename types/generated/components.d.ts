@@ -3,12 +3,13 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface SharedLinks extends Struct.ComponentSchema {
   collectionName: 'components_shared_links';
   info: {
+    description: '';
     displayName: 'Links';
   };
   attributes: {
     image: Schema.Attribute.Media<'images', true>;
+    label: Schema.Attribute.String;
     link: Schema.Attribute.String;
-    title: Schema.Attribute.String;
     types: Schema.Attribute.Enumeration<['quickLinks', 'footerLinks']>;
   };
 }
