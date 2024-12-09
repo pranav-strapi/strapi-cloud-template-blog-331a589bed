@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bursts",
+  "info": {
+    "singularName": "burst",
+    "pluralName": "bursts",
+    "displayName": "Burst",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "burstTitle": {
+      "type": "string"
+    },
+    "isBirthBurst": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "text"
+    },
+    "imageSlider": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.image-slider"
+    }
+  }
+}

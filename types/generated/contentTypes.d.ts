@@ -369,6 +369,35 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBurstBurst extends Struct.CollectionTypeSchema {
+  collectionName: 'bursts';
+  info: {
+    description: '';
+    displayName: 'Burst';
+    pluralName: 'bursts';
+    singularName: 'burst';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    burstTitle: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    imageSlider: Schema.Attribute.Component<'shared.image-slider', true>;
+    isBirthBurst: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::burst.burst'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiKudosKudos extends Struct.CollectionTypeSchema {
   collectionName: 'kudoses';
   info: {
@@ -907,6 +936,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::burst.burst': ApiBurstBurst;
       'api::kudos.kudos': ApiKudosKudos;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
