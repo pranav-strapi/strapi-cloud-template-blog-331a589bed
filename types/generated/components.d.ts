@@ -7,7 +7,7 @@ export interface SharedBirthdayBurst extends Struct.ComponentSchema {
     displayName: 'bursts';
   };
   attributes: {
-    description: Schema.Attribute.Blocks;
+    description: Schema.Attribute.Text;
     isBirthBurst: Schema.Attribute.Boolean;
     sliderImage: Schema.Attribute.Component<'shared.image-slider', true>;
     title: Schema.Attribute.String;

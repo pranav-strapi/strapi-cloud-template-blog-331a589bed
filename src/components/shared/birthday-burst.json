@@ -9,9 +9,6 @@
     "title": {
       "type": "string"
     },
-    "description": {
-      "type": "blocks"
-    },
     "isBirthBurst": {
       "type": "boolean"
     },
@@ -19,6 +16,9 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.image-slider"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
