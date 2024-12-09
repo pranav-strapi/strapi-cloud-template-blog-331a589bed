@@ -4,14 +4,12 @@ export interface SharedBirthdayBurst extends Struct.ComponentSchema {
   collectionName: 'components_shared_birthday_bursts';
   info: {
     description: '';
-    displayName: 'birthBurst';
+    displayName: 'bursts';
   };
   attributes: {
     description: Schema.Attribute.Blocks;
-    images: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    isBirthBurst: Schema.Attribute.Boolean;
+    sliderImage: Schema.Attribute.Component<'shared.image-slider', true>;
     title: Schema.Attribute.String;
   };
 }
@@ -19,12 +17,11 @@ export interface SharedBirthdayBurst extends Struct.ComponentSchema {
 export interface SharedImageSlider extends Struct.ComponentSchema {
   collectionName: 'components_shared_image_sliders';
   info: {
+    description: '';
     displayName: 'ImageSlider';
   };
   attributes: {
-    description: Schema.Attribute.String;
     sliderImages: Schema.Attribute.Media<'images', true>;
-    title: Schema.Attribute.String;
   };
 }
 

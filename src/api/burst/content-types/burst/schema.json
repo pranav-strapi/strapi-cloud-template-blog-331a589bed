@@ -12,40 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "burstTitle": {
+    "burst": {
       "type": "component",
       "repeatable": true,
       "component": "shared.birthday-burst"
-    },
-    "imageSlider": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.image-slider"
-    },
-    "topBirthBurst": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.birthday-burst"
-    },
-    "middleBirthBurst": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.birthday-burst"
-    },
-    "topperSlider": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.image-slider"
-    },
-    "bottomBirthBurst": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.image-slider"
-    },
-    "weddingSlider": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.image-slider"
     }
   }
 }

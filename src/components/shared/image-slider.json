@@ -1,22 +1,18 @@
 {
   "collectionName": "components_shared_image_sliders",
   "info": {
-    "displayName": "ImageSlider"
+    "displayName": "ImageSlider",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "sliderImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
-    },
-    "title": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
+      ]
     }
   }
 }

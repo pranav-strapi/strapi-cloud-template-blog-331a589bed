@@ -1,7 +1,7 @@
 {
   "collectionName": "components_shared_birthday_bursts",
   "info": {
-    "displayName": "birthBurst",
+    "displayName": "bursts",
     "description": ""
   },
   "options": {},
@@ -12,16 +12,13 @@
     "description": {
       "type": "blocks"
     },
-    "images": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "isBirthBurst": {
+      "type": "boolean"
+    },
+    "sliderImage": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.image-slider"
     }
   }
 }
