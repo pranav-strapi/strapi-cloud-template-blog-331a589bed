@@ -1,5 +1,33 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedHolyday extends Struct.ComponentSchema {
+  collectionName: 'components_shared_holydays';
+  info: {
+    displayName: 'holyday';
+  };
+  attributes: {
+    date: Schema.Attribute.Date & Schema.Attribute.Unique;
+    day: Schema.Attribute.Enumeration<
+      ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+    >;
+    holydayName: Schema.Attribute.Blocks;
+  };
+}
+
+export interface SharedHolydayCalender extends Struct.ComponentSchema {
+  collectionName: 'components_shared_holyday_calenders';
+  info: {
+    description: '';
+    displayName: 'holydayCalender';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+    holyday: Schema.Attribute.Component<'shared.holyday', true>;
+    image: Schema.Attribute.Media<'images'>;
+    location: Schema.Attribute.Enumeration<['Kerala', 'Chennai', 'Banglore']>;
+  };
+}
+
 export interface SharedImage extends Struct.ComponentSchema {
   collectionName: 'components_shared_images';
   info: {
@@ -101,6 +129,8 @@ export interface SharedTextEditor extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.holyday': SharedHolyday;
+      'shared.holyday-calender': SharedHolydayCalender;
       'shared.image': SharedImage;
       'shared.image-slider': SharedImageSlider;
       'shared.links': SharedLinks;

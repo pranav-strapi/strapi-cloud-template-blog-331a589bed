@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_holydays",
+  "info": {
+    "displayName": "holyday"
+  },
+  "options": {},
+  "attributes": {
+    "holydayName": {
+      "type": "blocks"
+    },
+    "day": {
+      "type": "enumeration",
+      "enum": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    "date": {
+      "type": "date",
+      "unique": true
+    }
+  }
+}
