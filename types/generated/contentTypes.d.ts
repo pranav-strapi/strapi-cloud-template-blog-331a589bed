@@ -381,10 +381,13 @@ export interface ApiBurstBurst extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    burst: Schema.Attribute.Component<'shared.birthday-burst', true>;
+    burstTitle: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    imageSlider: Schema.Attribute.Component<'shared.image-slider', true>;
+    isBirthBurst: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::burst.burst'> &
       Schema.Attribute.Private;

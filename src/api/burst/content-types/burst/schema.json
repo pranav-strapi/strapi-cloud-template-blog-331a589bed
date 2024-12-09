@@ -12,10 +12,19 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "burst": {
+    "burstTitle": {
+      "type": "string"
+    },
+    "isBirthBurst": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "text"
+    },
+    "imageSlider": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.birthday-burst"
+      "component": "shared.image-slider"
     }
   }
 }
