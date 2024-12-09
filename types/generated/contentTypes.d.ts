@@ -369,6 +369,38 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBurstBurst extends Struct.CollectionTypeSchema {
+  collectionName: 'bursts';
+  info: {
+    description: '';
+    displayName: 'Burst';
+    pluralName: 'bursts';
+    singularName: 'burst';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bottomBirthBurst: Schema.Attribute.Component<'shared.image-slider', true>;
+    burstTitle: Schema.Attribute.Component<'shared.birthday-burst', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    imageSlider: Schema.Attribute.Component<'shared.image-slider', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::burst.burst'> &
+      Schema.Attribute.Private;
+    middleBirthBurst: Schema.Attribute.Component<'shared.birthday-burst', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    topBirthBurst: Schema.Attribute.Component<'shared.birthday-burst', true>;
+    topperSlider: Schema.Attribute.Component<'shared.image-slider', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    weddingSlider: Schema.Attribute.Component<'shared.image-slider', true>;
+  };
+}
+
 export interface ApiKudosKudos extends Struct.CollectionTypeSchema {
   collectionName: 'kudoses';
   info: {
@@ -907,6 +939,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::burst.burst': ApiBurstBurst;
       'api::kudos.kudos': ApiKudosKudos;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

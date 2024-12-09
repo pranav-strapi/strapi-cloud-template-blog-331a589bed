@@ -1,5 +1,33 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedBirthdayBurst extends Struct.ComponentSchema {
+  collectionName: 'components_shared_birthday_bursts';
+  info: {
+    description: '';
+    displayName: 'birthBurst';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedImageSlider extends Struct.ComponentSchema {
+  collectionName: 'components_shared_image_sliders';
+  info: {
+    displayName: 'ImageSlider';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    sliderImages: Schema.Attribute.Media<'images', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedLinks extends Struct.ComponentSchema {
   collectionName: 'components_shared_links';
   info: {
@@ -50,6 +78,8 @@ export interface SharedTextEditor extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.birthday-burst': SharedBirthdayBurst;
+      'shared.image-slider': SharedImageSlider;
       'shared.links': SharedLinks;
       'shared.seo': SharedSeo;
       'shared.text-editor': SharedTextEditor;
