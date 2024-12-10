@@ -21,7 +21,8 @@
       "type": "enumeration",
       "enum": [
         "quickLinks",
-        "footerLinks"
+        "footerLinks",
+        "basic"
       ]
     },
     "link": {

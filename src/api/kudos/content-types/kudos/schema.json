@@ -20,7 +20,7 @@
       "type": "string",
       "required": true
     },
-    "contents": {
+    "blocks": {
       "type": "dynamiczone",
       "components": [
         "shared.text-editor"

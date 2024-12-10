@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_shared_page_banners",
+  "info": {
+    "displayName": "PageBanner",
+    "icon": "archive",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "homePage",
+        "mainPages",
+        "subPages"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.text-editor"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
