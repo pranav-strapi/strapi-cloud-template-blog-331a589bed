@@ -3,14 +3,12 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface SharedHolyday extends Struct.ComponentSchema {
   collectionName: 'components_shared_holydays';
   info: {
+    description: '';
     displayName: 'holyday';
   };
   attributes: {
     date: Schema.Attribute.Date & Schema.Attribute.Unique;
-    day: Schema.Attribute.Enumeration<
-      ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
-    >;
-    holydayName: Schema.Attribute.Blocks;
+    holydayName: Schema.Attribute.String;
   };
 }
 
