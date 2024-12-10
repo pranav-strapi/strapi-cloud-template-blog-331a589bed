@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_holidays",
+  "info": {
+    "displayName": "holiday"
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "holidayName": {
+      "type": "string"
+    }
+  }
+}

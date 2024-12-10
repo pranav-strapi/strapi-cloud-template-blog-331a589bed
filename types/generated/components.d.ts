@@ -1,26 +1,26 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedHolyday extends Struct.ComponentSchema {
-  collectionName: 'components_shared_holydays';
+export interface SharedHoliday extends Struct.ComponentSchema {
+  collectionName: 'components_shared_holidays';
   info: {
-    description: '';
-    displayName: 'holyday';
+    displayName: 'holiday';
   };
   attributes: {
-    date: Schema.Attribute.Date & Schema.Attribute.Unique;
-    holydayName: Schema.Attribute.String;
+    date: Schema.Attribute.Date;
+    holidayName: Schema.Attribute.String;
   };
 }
 
-export interface SharedHolydayCalender extends Struct.ComponentSchema {
-  collectionName: 'components_shared_holyday_calenders';
+export interface SharedHolidayCalender extends Struct.ComponentSchema {
+  collectionName: 'components_shared_holiday_calenders';
   info: {
     description: '';
-    displayName: 'holydayCalender';
+    displayName: 'holidayCalender';
   };
   attributes: {
-    description: Schema.Attribute.Blocks;
-    holyday: Schema.Attribute.Component<'shared.holyday', true>;
+    description: Schema.Attribute.String;
+    holiday: Schema.Attribute.Component<'shared.holiday', true>;
+    holidayPosition: Schema.Attribute.Enumeration<['Right', 'Left']>;
     image: Schema.Attribute.Media<'images'>;
     location: Schema.Attribute.Enumeration<['Kerala', 'Chennai', 'Banglore']>;
   };
@@ -127,8 +127,8 @@ export interface SharedTextEditor extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.holyday': SharedHolyday;
-      'shared.holyday-calender': SharedHolydayCalender;
+      'shared.holiday': SharedHoliday;
+      'shared.holiday-calender': SharedHolidayCalender;
       'shared.image': SharedImage;
       'shared.image-slider': SharedImageSlider;
       'shared.links': SharedLinks;
