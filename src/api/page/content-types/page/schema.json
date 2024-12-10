@@ -29,7 +29,8 @@
       "components": [
         "shared.text-editor",
         "shared.main-page-overview",
-        "shared.image"
+        "shared.image",
+        "shared.holiday-calender"
       ]
     }
   }

@@ -476,7 +476,12 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   attributes: {
     banner: Schema.Attribute.Component<'shared.page-banner', false>;
     blocks: Schema.Attribute.DynamicZone<
-      ['shared.text-editor', 'shared.main-page-overview', 'shared.image']
+      [
+        'shared.text-editor',
+        'shared.main-page-overview',
+        'shared.image',
+        'shared.holiday-calender',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -486,6 +491,42 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSnapshotSnapshot extends Struct.CollectionTypeSchema {
+  collectionName: 'snapshots';
+  info: {
+    displayName: 'snapshot';
+    pluralName: 'snapshots';
+    singularName: 'snapshot';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::snapshot.snapshot'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slider: Schema.Attribute.Component<'shared.image-slider', false>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1039,6 +1080,7 @@ declare module '@strapi/strapi' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::kudos.kudos': ApiKudosKudos;
       'api::page.page': ApiPagePage;
+      'api::snapshot.snapshot': ApiSnapshotSnapshot;
       'api::stream.stream': ApiStreamStream;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

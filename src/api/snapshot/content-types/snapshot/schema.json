@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "snapshots",
+  "info": {
+    "singularName": "snapshot",
+    "pluralName": "snapshots",
+    "displayName": "snapshot"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slider": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.image-slider"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}
