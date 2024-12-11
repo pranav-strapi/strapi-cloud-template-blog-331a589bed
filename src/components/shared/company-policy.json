@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shared_company_policies",
+  "info": {
+    "displayName": "companyPolicy"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.text-editor"
+    }
+  }
+}
