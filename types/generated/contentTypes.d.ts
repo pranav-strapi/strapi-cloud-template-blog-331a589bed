@@ -386,12 +386,52 @@ export interface ApiBurstBurst extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    home_page: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::home-page.home-page'
+    >;
     imageSlider: Schema.Attribute.Component<'shared.image-slider', true>;
     isBirthBurst: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::burst.burst'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
+  collectionName: 'home_pages';
+  info: {
+    description: '';
+    displayName: 'homePage';
+    pluralName: 'home-pages';
+    singularName: 'home-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bursts: Schema.Attribute.Relation<'oneToMany', 'api::burst.burst'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.Date;
+    events: Schema.Attribute.Component<'shared.links', true>;
+    footerLinks: Schema.Attribute.Component<'shared.links', true>;
+    image: Schema.Attribute.Component<'shared.image', false>;
+    kudos: Schema.Attribute.Relation<'oneToMany', 'api::kudos.kudos'>;
+    links: Schema.Attribute.Component<'shared.links', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-page.home-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    quickLinks: Schema.Attribute.Component<'shared.links', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -416,6 +456,10 @@ export interface ApiKudosKudos extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     date: Schema.Attribute.Date & Schema.Attribute.Required;
+    home_page: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::home-page.home-page'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::kudos.kudos'> &
       Schema.Attribute.Private;
@@ -968,6 +1012,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::burst.burst': ApiBurstBurst;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::kudos.kudos': ApiKudosKudos;
       'api::page.page': ApiPagePage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
