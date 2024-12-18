@@ -22,17 +22,6 @@
       "repeatable": true,
       "component": "shared.links"
     },
-    "events": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.links"
-    },
-    "kudos": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::kudos.kudos",
-      "mappedBy": "home_page"
-    },
     "date": {
       "type": "date"
     },
@@ -41,16 +30,25 @@
       "repeatable": false,
       "component": "shared.image"
     },
-    "bursts": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::burst.burst",
-      "mappedBy": "home_page"
-    },
     "footerLinks": {
       "type": "component",
       "repeatable": true,
       "component": "shared.links"
+    },
+    "events": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.home-events"
+    },
+    "bursts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.home-events"
+    },
+    "kudos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.home-events"
     }
   }
 }

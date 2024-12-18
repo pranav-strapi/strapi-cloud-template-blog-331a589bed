@@ -386,10 +386,6 @@ export interface ApiBurstBurst extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
-    home_page: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::home-page.home-page'
-    >;
     imageSlider: Schema.Attribute.Component<'shared.image-slider', true>;
     isBirthBurst: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -414,15 +410,15 @@ export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    bursts: Schema.Attribute.Relation<'oneToMany', 'api::burst.burst'>;
+    bursts: Schema.Attribute.Component<'shared.home-events', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     date: Schema.Attribute.Date;
-    events: Schema.Attribute.Component<'shared.links', true>;
+    events: Schema.Attribute.Component<'shared.home-events', true>;
     footerLinks: Schema.Attribute.Component<'shared.links', true>;
     image: Schema.Attribute.Component<'shared.image', false>;
-    kudos: Schema.Attribute.Relation<'oneToMany', 'api::kudos.kudos'>;
+    kudos: Schema.Attribute.Component<'shared.home-events', true>;
     links: Schema.Attribute.Component<'shared.links', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -456,10 +452,6 @@ export interface ApiKudosKudos extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     date: Schema.Attribute.Date & Schema.Attribute.Required;
-    home_page: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::home-page.home-page'
-    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::kudos.kudos'> &
       Schema.Attribute.Private;

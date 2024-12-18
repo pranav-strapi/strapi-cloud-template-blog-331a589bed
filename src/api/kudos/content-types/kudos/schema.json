@@ -26,12 +26,6 @@
         "shared.text-editor"
       ],
       "required": true
-    },
-    "home_page": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::home-page.home-page",
-      "inversedBy": "kudos"
     }
   }
 }

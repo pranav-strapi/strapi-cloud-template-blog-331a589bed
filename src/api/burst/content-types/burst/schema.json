@@ -25,12 +25,6 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.image-slider"
-    },
-    "home_page": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::home-page.home-page",
-      "inversedBy": "bursts"
     }
   }
 }

@@ -26,6 +26,18 @@ export interface SharedHolidayCalender extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedHomeEvents extends Struct.ComponentSchema {
+  collectionName: 'components_shared_home_events';
+  info: {
+    displayName: 'homeEvents';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+    viewAll: Schema.Attribute.String;
+  };
+}
+
 export interface SharedImage extends Struct.ComponentSchema {
   collectionName: 'components_shared_images';
   info: {
@@ -129,6 +141,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'shared.holiday': SharedHoliday;
       'shared.holiday-calender': SharedHolidayCalender;
+      'shared.home-events': SharedHomeEvents;
       'shared.image': SharedImage;
       'shared.image-slider': SharedImageSlider;
       'shared.links': SharedLinks;
