@@ -1,17 +1,5 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedCompanyPolicy extends Struct.ComponentSchema {
-  collectionName: 'components_shared_company_policies';
-  info: {
-    displayName: 'companyPolicy';
-  };
-  attributes: {
-    description: Schema.Attribute.Component<'shared.text-editor', true>;
-    subTitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-  };
-}
-
 export interface SharedHoliday extends Struct.ComponentSchema {
   collectionName: 'components_shared_holidays';
   info: {
@@ -35,18 +23,6 @@ export interface SharedHolidayCalender extends Struct.ComponentSchema {
     holidayPosition: Schema.Attribute.Enumeration<['Right', 'Left']>;
     image: Schema.Attribute.Media<'images'>;
     location: Schema.Attribute.Enumeration<['Kerala', 'Chennai', 'Banglore']>;
-  };
-}
-
-export interface SharedHomeEvents extends Struct.ComponentSchema {
-  collectionName: 'components_shared_home_events';
-  info: {
-    displayName: 'homeEvents';
-  };
-  attributes: {
-    icon: Schema.Attribute.Media<'images'>;
-    title: Schema.Attribute.String;
-    viewAll: Schema.Attribute.String;
   };
 }
 
@@ -130,20 +106,6 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedStreamComponent extends Struct.ComponentSchema {
-  collectionName: 'components_shared_stream_components';
-  info: {
-    description: '';
-    displayName: 'streamComponent';
-  };
-  attributes: {
-    description: Schema.Attribute.Blocks;
-    image: Schema.Attribute.Media<'images'>;
-    isImageRequired: Schema.Attribute.Boolean;
-    title: Schema.Attribute.String;
-  };
-}
-
 export interface SharedTextEditor extends Struct.ComponentSchema {
   collectionName: 'components_shared_text_editors';
   info: {
@@ -162,21 +124,74 @@ export interface SharedTextEditor extends Struct.ComponentSchema {
   };
 }
 
+export interface StreamCompanyPolicy extends Struct.ComponentSchema {
+  collectionName: 'components_stream_company_policies';
+  info: {
+    description: '';
+    displayName: 'CompanyPolicy';
+    icon: 'bulletList';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    policies: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface StreamStreamCard extends Struct.ComponentSchema {
+  collectionName: 'components_stream_stream_cards';
+  info: {
+    displayName: 'StreamCard';
+  };
+  attributes: {
+    background: Schema.Attribute.Boolean;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface StreamStreamCardGrid extends Struct.ComponentSchema {
+  collectionName: 'components_stream_stream_card_grids';
+  info: {
+    displayName: 'StreamCardGrid';
+    icon: 'apps';
+  };
+  attributes: {
+    contents: Schema.Attribute.Component<'stream.stream-card', true>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.company-policy': SharedCompanyPolicy;
       'shared.holiday': SharedHoliday;
       'shared.holiday-calender': SharedHolidayCalender;
-      'shared.home-events': SharedHomeEvents;
       'shared.image': SharedImage;
       'shared.image-slider': SharedImageSlider;
       'shared.links': SharedLinks;
       'shared.main-page-overview': SharedMainPageOverview;
       'shared.page-banner': SharedPageBanner;
       'shared.seo': SharedSeo;
-      'shared.stream-component': SharedStreamComponent;
       'shared.text-editor': SharedTextEditor;
+      'stream.company-policy': StreamCompanyPolicy;
+      'stream.stream-card': StreamStreamCard;
+      'stream.stream-card-grid': StreamStreamCardGrid;
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "snapshot",
     "pluralName": "snapshots",
-    "displayName": "snapshot"
+    "displayName": "Workplace.Snapshot",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "home_pages",
   "info": {
     "singularName": "home-page",
     "pluralName": "home-pages",
-    "displayName": "homePage",
+    "displayName": "Workplace.HomePage",
     "description": ""
   },
   "options": {
@@ -31,21 +31,6 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.links"
-    },
-    "events": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.home-events"
-    },
-    "bursts": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.home-events"
-    },
-    "kudos": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.home-events"
     }
   }
 }

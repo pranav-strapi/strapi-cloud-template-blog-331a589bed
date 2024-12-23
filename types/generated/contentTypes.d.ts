@@ -373,7 +373,7 @@ export interface ApiBurstBurst extends Struct.CollectionTypeSchema {
   collectionName: 'bursts';
   info: {
     description: '';
-    displayName: 'Burst';
+    displayName: 'Workplace.Burst';
     pluralName: 'bursts';
     singularName: 'burst';
   };
@@ -398,11 +398,11 @@ export interface ApiBurstBurst extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
+export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   collectionName: 'home_pages';
   info: {
     description: '';
-    displayName: 'homePage';
+    displayName: 'Workplace.HomePage';
     pluralName: 'home-pages';
     singularName: 'home-page';
   };
@@ -412,12 +412,9 @@ export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
   attributes: {
     actionLinks: Schema.Attribute.Component<'shared.links', true>;
     bannerImage: Schema.Attribute.Component<'shared.image', false>;
-    bursts: Schema.Attribute.Component<'shared.home-events', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    events: Schema.Attribute.Component<'shared.home-events', true>;
-    kudos: Schema.Attribute.Component<'shared.home-events', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -437,7 +434,7 @@ export interface ApiKudosKudos extends Struct.CollectionTypeSchema {
   collectionName: 'kudoses';
   info: {
     description: '';
-    displayName: 'Kudos';
+    displayName: 'Workplace.Kudos';
     pluralName: 'kudoses';
     singularName: 'kudos';
   };
@@ -466,7 +463,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
     description: '';
-    displayName: 'Page';
+    displayName: 'Workplace.Page';
     pluralName: 'pages';
     singularName: 'page';
   };
@@ -481,6 +478,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'shared.main-page-overview',
         'shared.image',
         'shared.holiday-calender',
+        'stream.stream-card-grid',
+        'stream.company-policy',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -501,7 +500,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
 export interface ApiSnapshotSnapshot extends Struct.CollectionTypeSchema {
   collectionName: 'snapshots';
   info: {
-    displayName: 'snapshot';
+    description: '';
+    displayName: 'Workplace.Snapshot';
     pluralName: 'snapshots';
     singularName: 'snapshot';
   };
@@ -528,39 +528,6 @@ export interface ApiSnapshotSnapshot extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     slider: Schema.Attribute.Component<'shared.image-slider', false>;
     title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiStreamStream extends Struct.CollectionTypeSchema {
-  collectionName: 'streams';
-  info: {
-    description: '';
-    displayName: 'stream';
-    pluralName: 'streams';
-    singularName: 'stream';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    announcement: Schema.Attribute.Component<'shared.stream-component', false>;
-    companyPolicy: Schema.Attribute.Component<'shared.company-policy', false>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    createPost: Schema.Attribute.Component<'shared.stream-component', false>;
-    credits: Schema.Attribute.Component<'shared.stream-component', false>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::stream.stream'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    signUp: Schema.Attribute.Component<'shared.stream-component', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1081,7 +1048,6 @@ declare module '@strapi/strapi' {
       'api::kudos.kudos': ApiKudosKudos;
       'api::page.page': ApiPagePage;
       'api::snapshot.snapshot': ApiSnapshotSnapshot;
-      'api::stream.stream': ApiStreamStream;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
