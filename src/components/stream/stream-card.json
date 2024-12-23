@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_stream_stream_cards",
+  "info": {
+    "displayName": "StreamCard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "background": {
+      "type": "boolean"
+    }
+  }
+}

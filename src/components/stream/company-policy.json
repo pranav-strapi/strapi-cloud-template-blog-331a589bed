@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_stream_company_policies",
+  "info": {
+    "displayName": "CompanyPolicy",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "policies": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

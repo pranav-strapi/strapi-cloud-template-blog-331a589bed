@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_stream_stream_card_grids",
+  "info": {
+    "displayName": "StreamCardGrid",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "contents": {
+      "type": "component",
+      "repeatable": true,
+      "component": "stream.stream-card"
+    }
+  }
+}

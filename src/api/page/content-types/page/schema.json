@@ -30,7 +30,9 @@
         "shared.text-editor",
         "shared.main-page-overview",
         "shared.image",
-        "shared.holiday-calender"
+        "shared.holiday-calender",
+        "stream.stream-card-grid",
+        "stream.company-policy"
       ]
     }
   }
