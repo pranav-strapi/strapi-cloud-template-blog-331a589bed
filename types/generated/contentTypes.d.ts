@@ -398,6 +398,41 @@ export interface ApiBurstBurst extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
+  collectionName: 'home_pages';
+  info: {
+    description: '';
+    displayName: 'homePage';
+    pluralName: 'home-pages';
+    singularName: 'home-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    actionLinks: Schema.Attribute.Component<'shared.links', true>;
+    bannerImage: Schema.Attribute.Component<'shared.image', false>;
+    bursts: Schema.Attribute.Component<'shared.home-events', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    events: Schema.Attribute.Component<'shared.home-events', true>;
+    kudos: Schema.Attribute.Component<'shared.home-events', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-page.home-page'
+    > &
+      Schema.Attribute.Private;
+    portalLinks: Schema.Attribute.Component<'shared.links', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    quickLinks: Schema.Attribute.Component<'shared.links', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiKudosKudos extends Struct.CollectionTypeSchema {
   collectionName: 'kudoses';
   info: {
@@ -1001,6 +1036,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::burst.burst': ApiBurstBurst;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::kudos.kudos': ApiKudosKudos;
       'api::page.page': ApiPagePage;
       'api::stream.stream': ApiStreamStream;
