@@ -373,7 +373,7 @@ export interface ApiBurstBurst extends Struct.CollectionTypeSchema {
   collectionName: 'bursts';
   info: {
     description: '';
-    displayName: 'Burst';
+    displayName: 'Workplace.Burst';
     pluralName: 'bursts';
     singularName: 'burst';
   };
@@ -437,7 +437,7 @@ export interface ApiKudosKudos extends Struct.CollectionTypeSchema {
   collectionName: 'kudoses';
   info: {
     description: '';
-    displayName: 'Kudos';
+    displayName: 'Workplace.Kudos';
     pluralName: 'kudoses';
     singularName: 'kudos';
   };
@@ -466,7 +466,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
     description: '';
-    displayName: 'Page';
+    displayName: 'Workplace.Page';
     pluralName: 'pages';
     singularName: 'page';
   };
