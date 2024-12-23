@@ -410,22 +410,21 @@ export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    actionLinks: Schema.Attribute.Component<'shared.links', true>;
+    bannerImage: Schema.Attribute.Component<'shared.image', false>;
     bursts: Schema.Attribute.Component<'shared.home-events', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    date: Schema.Attribute.Date;
     events: Schema.Attribute.Component<'shared.home-events', true>;
-    footerLinks: Schema.Attribute.Component<'shared.links', true>;
-    image: Schema.Attribute.Component<'shared.image', false>;
     kudos: Schema.Attribute.Component<'shared.home-events', true>;
-    links: Schema.Attribute.Component<'shared.links', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::home-page.home-page'
     > &
       Schema.Attribute.Private;
+    portalLinks: Schema.Attribute.Component<'shared.links', true>;
     publishedAt: Schema.Attribute.DateTime;
     quickLinks: Schema.Attribute.Component<'shared.links', true>;
     updatedAt: Schema.Attribute.DateTime;

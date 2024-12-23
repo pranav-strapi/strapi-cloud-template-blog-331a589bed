@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "links": {
+    "actionLinks": {
       "type": "component",
       "repeatable": true,
       "component": "shared.links"
@@ -22,15 +22,12 @@
       "repeatable": true,
       "component": "shared.links"
     },
-    "date": {
-      "type": "date"
-    },
-    "image": {
+    "bannerImage": {
       "type": "component",
       "repeatable": false,
       "component": "shared.image"
     },
-    "footerLinks": {
+    "portalLinks": {
       "type": "component",
       "repeatable": true,
       "component": "shared.links"
