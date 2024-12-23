@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedCompanyPolicy extends Struct.ComponentSchema {
+  collectionName: 'components_shared_company_policies';
+  info: {
+    displayName: 'companyPolicy';
+  };
+  attributes: {
+    description: Schema.Attribute.Component<'shared.text-editor', true>;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedHoliday extends Struct.ComponentSchema {
   collectionName: 'components_shared_holidays';
   info: {
@@ -106,6 +118,20 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedStreamComponent extends Struct.ComponentSchema {
+  collectionName: 'components_shared_stream_components';
+  info: {
+    description: '';
+    displayName: 'streamComponent';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Media<'images'>;
+    isImageRequired: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedTextEditor extends Struct.ComponentSchema {
   collectionName: 'components_shared_text_editors';
   info: {
@@ -127,6 +153,7 @@ export interface SharedTextEditor extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.company-policy': SharedCompanyPolicy;
       'shared.holiday': SharedHoliday;
       'shared.holiday-calender': SharedHolidayCalender;
       'shared.image': SharedImage;
@@ -135,6 +162,7 @@ declare module '@strapi/strapi' {
       'shared.main-page-overview': SharedMainPageOverview;
       'shared.page-banner': SharedPageBanner;
       'shared.seo': SharedSeo;
+      'shared.stream-component': SharedStreamComponent;
       'shared.text-editor': SharedTextEditor;
     }
   }

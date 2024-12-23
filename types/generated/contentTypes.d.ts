@@ -458,6 +458,39 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiStreamStream extends Struct.CollectionTypeSchema {
+  collectionName: 'streams';
+  info: {
+    description: '';
+    displayName: 'stream';
+    pluralName: 'streams';
+    singularName: 'stream';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    announcement: Schema.Attribute.Component<'shared.stream-component', false>;
+    companyPolicy: Schema.Attribute.Component<'shared.company-policy', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    createPost: Schema.Attribute.Component<'shared.stream-component', false>;
+    credits: Schema.Attribute.Component<'shared.stream-component', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::stream.stream'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    signUp: Schema.Attribute.Component<'shared.stream-component', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -970,6 +1003,7 @@ declare module '@strapi/strapi' {
       'api::burst.burst': ApiBurstBurst;
       'api::kudos.kudos': ApiKudosKudos;
       'api::page.page': ApiPagePage;
+      'api::stream.stream': ApiStreamStream;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
