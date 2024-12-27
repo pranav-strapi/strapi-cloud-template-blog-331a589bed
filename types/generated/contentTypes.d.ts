@@ -459,6 +459,35 @@ export interface ApiKudosKudos extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiLayoutLayout extends Struct.CollectionTypeSchema {
+  collectionName: 'layouts';
+  info: {
+    displayName: 'Workplace.Layout';
+    pluralName: 'layouts';
+    singularName: 'layout';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    footer: Schema.Attribute.Component<'shared.footer', false>;
+    header: Schema.Attribute.Component<'shared.header', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::layout.layout'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
@@ -1047,6 +1076,7 @@ declare module '@strapi/strapi' {
       'api::burst.burst': ApiBurstBurst;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::kudos.kudos': ApiKudosKudos;
+      'api::layout.layout': ApiLayoutLayout;
       'api::page.page': ApiPagePage;
       'api::snapshot.snapshot': ApiSnapshotSnapshot;
       'plugin::content-releases.release': PluginContentReleasesRelease;

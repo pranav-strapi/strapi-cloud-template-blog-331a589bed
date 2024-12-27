@@ -11,6 +11,47 @@ export interface PageBreadcrumb extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFooter extends Struct.ComponentSchema {
+  collectionName: 'components_shared_footers';
+  info: {
+    displayName: 'footer';
+  };
+  attributes: {
+    footerLinks: Schema.Attribute.Component<'shared.links', true>;
+    footerTitle: Schema.Attribute.String;
+  };
+}
+
+export interface SharedHeader extends Struct.ComponentSchema {
+  collectionName: 'components_shared_headers';
+  info: {
+    description: '';
+    displayName: 'header';
+  };
+  attributes: {
+    businessGuidelines: Schema.Attribute.Component<
+      'shared.header-content',
+      true
+    >;
+    employeeResources: Schema.Attribute.Component<
+      'shared.header-content',
+      true
+    >;
+    headerTitle: Schema.Attribute.String;
+    news: Schema.Attribute.Component<'shared.header-content', true>;
+  };
+}
+
+export interface SharedHeaderContent extends Struct.ComponentSchema {
+  collectionName: 'components_shared_header_contents';
+  info: {
+    displayName: 'headerContent';
+  };
+  attributes: {
+    content: Schema.Attribute.String;
+  };
+}
+
 export interface SharedHoliday extends Struct.ComponentSchema {
   collectionName: 'components_shared_holidays';
   info: {
@@ -194,6 +235,9 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'page.breadcrumb': PageBreadcrumb;
+      'shared.footer': SharedFooter;
+      'shared.header': SharedHeader;
+      'shared.header-content': SharedHeaderContent;
       'shared.holiday': SharedHoliday;
       'shared.holiday-calender': SharedHolidayCalender;
       'shared.image': SharedImage;

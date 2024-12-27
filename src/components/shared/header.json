@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_headers",
+  "info": {
+    "displayName": "header",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "headerTitle": {
+      "type": "string"
+    },
+    "businessGuidelines": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.header-content"
+    },
+    "employeeResources": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.header-content"
+    },
+    "news": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.header-content"
+    }
+  }
+}
