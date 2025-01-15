@@ -15,7 +15,7 @@
     "title": {
       "type": "string"
     },
-    "slider": {
+    "imageSlider": {
       "type": "component",
       "repeatable": false,
       "component": "shared.image-slider"

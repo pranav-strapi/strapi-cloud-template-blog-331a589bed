@@ -386,7 +386,7 @@ export interface ApiBurstBurst extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
-    imageSlider: Schema.Attribute.Component<'shared.image-slider', true>;
+    imageSlider: Schema.Attribute.Component<'shared.image-slider', false>;
     isBirthBurst: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::burst.burst'> &
@@ -482,6 +482,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'stream.company-policy',
       ]
     >;
+    breadcrumbs: Schema.Attribute.Component<'page.breadcrumb', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -519,6 +520,7 @@ export interface ApiSnapshotSnapshot extends Struct.CollectionTypeSchema {
           preset: 'default';
         }
       >;
+    imageSlider: Schema.Attribute.Component<'shared.image-slider', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -526,7 +528,6 @@ export interface ApiSnapshotSnapshot extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    slider: Schema.Attribute.Component<'shared.image-slider', false>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
