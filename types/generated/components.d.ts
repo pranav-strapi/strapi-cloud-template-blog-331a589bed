@@ -1,5 +1,16 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface PageBreadcrumb extends Struct.ComponentSchema {
+  collectionName: 'components_page_breadcrumbs';
+  info: {
+    displayName: 'Breadcrumb';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface SharedHoliday extends Struct.ComponentSchema {
   collectionName: 'components_shared_holidays';
   info: {
@@ -58,7 +69,9 @@ export interface SharedLinks extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images', true>;
     label: Schema.Attribute.String;
     link: Schema.Attribute.String;
-    types: Schema.Attribute.Enumeration<['quickLinks', 'footerLinks', 'basic']>;
+    types: Schema.Attribute.Enumeration<
+      ['actionLinks', 'quickLinks', 'portalLinks', 'footerLinks', 'basic']
+    >;
   };
 }
 
@@ -85,7 +98,7 @@ export interface SharedPageBanner extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Component<'shared.text-editor', false>;
-    image: Schema.Attribute.Media<'images', true>;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<['homePage', 'mainPages', 'subPages']>;
   };
@@ -180,6 +193,7 @@ export interface StreamStreamCardGrid extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'page.breadcrumb': PageBreadcrumb;
       'shared.holiday': SharedHoliday;
       'shared.holiday-calender': SharedHolidayCalender;
       'shared.image': SharedImage;

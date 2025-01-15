@@ -19,6 +19,11 @@
       "type": "uid",
       "targetField": "title"
     },
+    "breadcrumbs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.breadcrumb"
+    },
     "banner": {
       "type": "component",
       "repeatable": false,
