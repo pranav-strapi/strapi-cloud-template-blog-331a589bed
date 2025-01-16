@@ -130,6 +130,17 @@ export interface SharedMainPageOverview extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedMenuGroup extends Struct.ComponentSchema {
+  collectionName: 'components_shared_menu_groups';
+  info: {
+    displayName: 'menuGroup';
+  };
+  attributes: {
+    link: Schema.Attribute.String;
+    titleField: Schema.Attribute.String;
+  };
+}
+
 export interface SharedPageBanner extends Struct.ComponentSchema {
   collectionName: 'components_shared_page_banners';
   info: {
@@ -244,6 +255,7 @@ declare module '@strapi/strapi' {
       'shared.image-slider': SharedImageSlider;
       'shared.links': SharedLinks;
       'shared.main-page-overview': SharedMainPageOverview;
+      'shared.menu-group': SharedMenuGroup;
       'shared.page-banner': SharedPageBanner;
       'shared.seo': SharedSeo;
       'shared.text-editor': SharedTextEditor;

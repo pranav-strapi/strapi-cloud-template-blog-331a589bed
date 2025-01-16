@@ -462,6 +462,7 @@ export interface ApiKudosKudos extends Struct.CollectionTypeSchema {
 export interface ApiLayoutLayout extends Struct.CollectionTypeSchema {
   collectionName: 'layouts';
   info: {
+    description: '';
     displayName: 'Workplace.Layout';
     pluralName: 'layouts';
     singularName: 'layout';
@@ -470,17 +471,19 @@ export interface ApiLayoutLayout extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    businessGuidelines: Schema.Attribute.Component<'shared.menu-group', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    footer: Schema.Attribute.Component<'shared.footer', false>;
-    header: Schema.Attribute.Component<'shared.header', false>;
+    employeeResources: Schema.Attribute.Component<'shared.menu-group', true>;
+    headerTitle: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::layout.layout'
     > &
       Schema.Attribute.Private;
+    news: Schema.Attribute.Component<'shared.menu-group', true>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

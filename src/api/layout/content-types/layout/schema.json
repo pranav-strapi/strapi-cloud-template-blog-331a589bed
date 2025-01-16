@@ -4,22 +4,31 @@
   "info": {
     "singularName": "layout",
     "pluralName": "layouts",
-    "displayName": "Workplace.Layout"
+    "displayName": "Workplace.Layout",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "header": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.header"
+    "headerTitle": {
+      "type": "string"
     },
-    "footer": {
+    "businessGuidelines": {
       "type": "component",
-      "repeatable": false,
-      "component": "shared.footer"
+      "repeatable": true,
+      "component": "shared.menu-group"
+    },
+    "employeeResources": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.menu-group"
+    },
+    "news": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.menu-group"
     }
   }
 }
