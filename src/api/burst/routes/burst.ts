@@ -3,7 +3,7 @@
  */
 import { factories } from "@strapi/strapi";
 
-export default factories.createCoreRouter("api::kudos.kudos");
+export default factories.createCoreRouter("api::burst.burst");
 
 ("use strict");
 
