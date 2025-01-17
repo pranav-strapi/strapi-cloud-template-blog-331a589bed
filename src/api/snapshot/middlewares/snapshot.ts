@@ -2,22 +2,19 @@
  * `snapshot` middleware
  */
 
-import type { Core } from "@strapi/strapi";
+import { Core } from "@strapi/strapi";
 
-export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
+export default ({ strapi }: { strapi: Core.Strapi }) => {
   return async (ctx: any, next: () => Promise<void>) => {
-    strapi.log.info("In snapshot middleware.");
-
-    // Check if the request is a GET request and has a 'populate' query parameter
-    if (ctx.method === "GET" && !ctx.query.populate) {
-      ctx.query.populate = {
-        slider: {
-          populate: "*", // Populate all fields of the `slider` component
+    if (ctx.request.url.startsWith("/api/snapshots")) {
+      ctx.query = {
+        populate: {
+          slider: {
+            populate: "*",
+          },
         },
-        description: "*", // Populate CKEditor field
       };
     }
-
     await next();
   };
 };
