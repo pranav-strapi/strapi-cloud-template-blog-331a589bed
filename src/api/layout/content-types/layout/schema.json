@@ -15,20 +15,10 @@
     "headerTitle": {
       "type": "string"
     },
-    "businessGuidelines": {
+    "menuGroup": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.menu-group"
-    },
-    "employeeResources": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.menu-group"
-    },
-    "news": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.menu-group"
+      "component": "layout.menu-group"
     }
   }
 }

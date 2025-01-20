@@ -471,11 +471,9 @@ export interface ApiLayoutLayout extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    businessGuidelines: Schema.Attribute.Component<'shared.menu-group', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    employeeResources: Schema.Attribute.Component<'shared.menu-group', true>;
     headerTitle: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -483,7 +481,7 @@ export interface ApiLayoutLayout extends Struct.CollectionTypeSchema {
       'api::layout.layout'
     > &
       Schema.Attribute.Private;
-    news: Schema.Attribute.Component<'shared.menu-group', true>;
+    menuGroup: Schema.Attribute.Component<'layout.menu-group', true>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
