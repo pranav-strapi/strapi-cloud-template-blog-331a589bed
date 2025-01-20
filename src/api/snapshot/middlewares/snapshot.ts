@@ -9,7 +9,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => {
     if (ctx.request.url.startsWith("/api/snapshots")) {
       ctx.query = {
         populate: {
-          slider: {
+          imageSlider: {
             populate: "*",
           },
         },
