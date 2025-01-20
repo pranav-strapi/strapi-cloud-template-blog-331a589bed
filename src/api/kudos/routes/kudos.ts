@@ -1,7 +1,12 @@
+import { factories } from "@strapi/strapi";
+
 /**
- * kudos router
+ * Kudos Router
  */
-
-import { factories } from '@strapi/strapi';
-
-export default factories.createCoreRouter('api::kudos.kudos');
+export default factories.createCoreRouter("api::kudos.kudos", {
+  config: {
+    find: {
+      middlewares: ["api::kudos.kudos"], // Add the kudos middleware for the find endpoint
+    },
+  },
+});

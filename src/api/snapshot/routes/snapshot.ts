@@ -1,7 +1,12 @@
+import { factories } from "@strapi/strapi";
+
 /**
- * snapshot router
+ * Snapshot Router
  */
-
-import { factories } from '@strapi/strapi';
-
-export default factories.createCoreRouter('api::snapshot.snapshot');
+export default factories.createCoreRouter("api::snapshot.snapshot", {
+  config: {
+    find: {
+      middlewares: ["api::snapshot.snapshot"], // Add the snapshot middleware for the find endpoint
+    },
+  },
+});

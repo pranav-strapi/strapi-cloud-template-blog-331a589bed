@@ -1,7 +1,12 @@
+import { factories } from "@strapi/strapi";
+
 /**
- * home-page router
+ * Home Page Router
  */
-
-import { factories } from '@strapi/strapi';
-
-export default factories.createCoreRouter('api::home-page.home-page');
+export default factories.createCoreRouter("api::home-page.home-page", {
+  config: {
+    find: {
+      middlewares: ["api::home-page.home-page"], // Add the home-page middleware for the find endpoint
+    },
+  },
+});

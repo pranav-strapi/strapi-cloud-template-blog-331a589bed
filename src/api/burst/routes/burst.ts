@@ -1,7 +1,12 @@
+import { factories } from "@strapi/strapi";
+
 /**
- * burst router
+ * Burst Router
  */
-
-import { factories } from '@strapi/strapi';
-
-export default factories.createCoreRouter('api::burst.burst');
+export default factories.createCoreRouter("api::burst.burst", {
+  config: {
+    find: {
+      middlewares: ["api::burst.burst"], // Add the burst middleware for the find endpoint
+    },
+  },
+});
