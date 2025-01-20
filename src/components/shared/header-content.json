@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_header_contents",
+  "info": {
+    "displayName": "headerContent"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "string"
+    }
+  }
+}

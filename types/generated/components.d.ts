@@ -1,5 +1,16 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface LayoutMenuGroup extends Struct.ComponentSchema {
+  collectionName: 'components_layout_menu_groups';
+  info: {
+    displayName: 'menuGroup';
+  };
+  attributes: {
+    links: Schema.Attribute.Component<'shared.links', true>;
+    titleField: Schema.Attribute.String;
+  };
+}
+
 export interface PageBreadcrumb extends Struct.ComponentSchema {
   collectionName: 'components_page_breadcrumbs';
   info: {
@@ -8,6 +19,47 @@ export interface PageBreadcrumb extends Struct.ComponentSchema {
   attributes: {
     label: Schema.Attribute.String;
     url: Schema.Attribute.String;
+  };
+}
+
+export interface SharedFooter extends Struct.ComponentSchema {
+  collectionName: 'components_shared_footers';
+  info: {
+    displayName: 'footer';
+  };
+  attributes: {
+    footerLinks: Schema.Attribute.Component<'shared.links', true>;
+    footerTitle: Schema.Attribute.String;
+  };
+}
+
+export interface SharedHeader extends Struct.ComponentSchema {
+  collectionName: 'components_shared_headers';
+  info: {
+    description: '';
+    displayName: 'header';
+  };
+  attributes: {
+    businessGuidelines: Schema.Attribute.Component<
+      'shared.header-content',
+      true
+    >;
+    employeeResources: Schema.Attribute.Component<
+      'shared.header-content',
+      true
+    >;
+    headerTitle: Schema.Attribute.String;
+    news: Schema.Attribute.Component<'shared.header-content', true>;
+  };
+}
+
+export interface SharedHeaderContent extends Struct.ComponentSchema {
+  collectionName: 'components_shared_header_contents';
+  info: {
+    displayName: 'headerContent';
+  };
+  attributes: {
+    content: Schema.Attribute.String;
   };
 }
 
@@ -193,7 +245,11 @@ export interface StreamStreamCardGrid extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'layout.menu-group': LayoutMenuGroup;
       'page.breadcrumb': PageBreadcrumb;
+      'shared.footer': SharedFooter;
+      'shared.header': SharedHeader;
+      'shared.header-content': SharedHeaderContent;
       'shared.holiday': SharedHoliday;
       'shared.holiday-calender': SharedHolidayCalender;
       'shared.image': SharedImage;

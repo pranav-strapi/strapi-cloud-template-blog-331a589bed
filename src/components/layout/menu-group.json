@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_layout_menu_groups",
+  "info": {
+    "displayName": "menuGroup"
+  },
+  "options": {},
+  "attributes": {
+    "titleField": {
+      "type": "string"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.links"
+    }
+  }
+}
