@@ -36,7 +36,9 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
               },
               "stream.stream-card-grid": {
                 populate: {
-                  contents: true, // Populate the 'contents' field in the stream card grid
+                  contents: {
+                    populate: "*",
+                  },
                 },
               },
               "stream.company-policy": {
