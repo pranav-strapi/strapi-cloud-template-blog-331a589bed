@@ -2,42 +2,47 @@ import { Core } from "@strapi/strapi";
 
 export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
   return async (ctx: any, next: () => Promise<void>) => {
-    // Check if the request is for the `/api/pages` endpoint
+    // Check if the request is targeting the `/api/pages` endpoint
     if (ctx.request.url.startsWith("/api/pages")) {
-      // Update the query to populate all necessary fields
+      // Extend the query to include population for all required fields
       ctx.query = {
         ...ctx.query, // Preserve existing query parameters
         populate: {
+          breadcrumbs: {
+            populate: "*", // Populate all fields in breadcrumbs component
+          },
           banner: {
             populate: {
-              image: true,
-              description: true,
+              image: true, // Populate the 'image' field in the banner component
+              description: true, // Populate the 'description' field in the banner component
             },
           },
           blocks: {
             on: {
-              "shared.holiday-calender": {
-                populate: "*",
-              },
               "shared.text-editor": {
-                populate: "*",
+                populate: "*", // Populate all fields in the text editor component
               },
               "shared.main-page-overview": {
                 populate: {
-                  image: true,
-                  subPages: true,
+                  image: true, // Populate the 'image' field
+                  subPages: true, // Populate the 'subPages' field
                 },
               },
               "shared.image": {
-                populate: "*",
+                populate: "*", // Populate all fields in the shared image component
+              },
+              "shared.holiday-calender": {
+                populate: "*", // Populate all fields in the holiday calendar component
               },
               "stream.stream-card-grid": {
                 populate: {
-                  contents: true,
+                  contents: {
+                    populate: "*",
+                  },
                 },
               },
               "stream.company-policy": {
-                populate: "*",
+                populate: "*", // Populate all fields in the company policy component
               },
             },
           },
@@ -45,6 +50,7 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
       };
     }
 
-    await next(); // Proceed to the next middleware or controller
+    // Proceed to the next middleware or controller
+    await next();
   };
 };
