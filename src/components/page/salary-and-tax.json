@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_page_salary_and_taxes",
+  "info": {
+    "displayName": "salaryAndTax"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "googleSheetLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page.google-sheet"
+    },
+    "description": {
+      "type": "text"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "deductionTable": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.text-editor"
+    },
+    "deductionTitle": {
+      "type": "string"
+    }
+  }
+}

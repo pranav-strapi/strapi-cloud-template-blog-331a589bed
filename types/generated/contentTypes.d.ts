@@ -510,6 +510,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'shared.holiday-calender',
         'stream.stream-card-grid',
         'stream.company-policy',
+        'page.salary-and-tax',
       ]
     >;
     breadcrumbs: Schema.Attribute.Component<'page.breadcrumb', true>;

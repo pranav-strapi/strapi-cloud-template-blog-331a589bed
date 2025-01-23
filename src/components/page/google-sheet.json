@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_page_google_sheets",
+  "info": {
+    "displayName": "googleSheet"
+  },
+  "options": {},
+  "attributes": {
+    "googleSheetLink": {
+      "type": "string"
+    }
+  }
+}

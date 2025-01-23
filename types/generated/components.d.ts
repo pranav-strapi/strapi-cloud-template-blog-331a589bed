@@ -22,6 +22,34 @@ export interface PageBreadcrumb extends Struct.ComponentSchema {
   };
 }
 
+export interface PageGoogleSheet extends Struct.ComponentSchema {
+  collectionName: 'components_page_google_sheets';
+  info: {
+    displayName: 'googleSheet';
+  };
+  attributes: {
+    googleSheetLink: Schema.Attribute.String;
+  };
+}
+
+export interface PageSalaryAndTax extends Struct.ComponentSchema {
+  collectionName: 'components_page_salary_and_taxes';
+  info: {
+    displayName: 'salaryAndTax';
+  };
+  attributes: {
+    deductionTable: Schema.Attribute.Component<'shared.text-editor', false>;
+    deductionTitle: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    googleSheetLink: Schema.Attribute.Component<'page.google-sheet', false>;
+    title: Schema.Attribute.String;
+    user: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+  };
+}
+
 export interface SharedFooter extends Struct.ComponentSchema {
   collectionName: 'components_shared_footers';
   info: {
@@ -247,6 +275,8 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'layout.menu-group': LayoutMenuGroup;
       'page.breadcrumb': PageBreadcrumb;
+      'page.google-sheet': PageGoogleSheet;
+      'page.salary-and-tax': PageSalaryAndTax;
       'shared.footer': SharedFooter;
       'shared.header': SharedHeader;
       'shared.header-content': SharedHeaderContent;
