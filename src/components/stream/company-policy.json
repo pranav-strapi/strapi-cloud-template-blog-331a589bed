@@ -11,9 +11,6 @@
       "type": "string"
     },
     "description": {
-      "type": "string"
-    },
-    "policies": {
       "type": "customField",
       "options": {
         "preset": "default"
