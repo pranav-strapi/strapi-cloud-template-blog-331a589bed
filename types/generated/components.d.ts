@@ -197,8 +197,7 @@ export interface StreamCompanyPolicy extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
-    description: Schema.Attribute.String;
-    policies: Schema.Attribute.RichText &
+    description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
