@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+$fontFamilyRegular: "Montserrat";
+.ck-editor__main ul {
+  margin: 0 !important;
+}
+.ck-content {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+
+  /* List Styles */
+  ul {
+    li {
+      list-style: none;
+      padding-left: 39px;
+      position: relative;
+    }
+
+    li:before {
+      content: " ";
+      left: 20px;
+      position: absolute;
+      height: 11px; /* Adjust to control the size */
+      aspect-ratio: cos(30deg);
+      top: 8px;
+      clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
+      background: #fb004e;
+    }
+  }
+
+  /* Base Font Families */
+  .font-montserrat {
+    font-family: $fontFamilyRegular, sans-serif;
+  }
+
+  /* Font Sizes */
+  .font-16 { font-size: 16px; }
+  .font-20 { font-size: 20px; }
+  .font-24 { font-size: 24px; }
+  .font-28 { font-size: 28px; }
+  .font-32 { font-size: 32px; }
+
+  /* Font Weights */
+  .fw-normal { font-weight: normal; }
+  .fw-medium { font-weight: 500; }
+  .fw-semibold { font-weight: 600; }
+  .fw-bold { font-weight: bold; }
+  .fw-extra-bold { font-weight: 800; }
+
+  /* Line Heights */
+  .lh-normal { line-height: normal; }
+  .lh-1-5 { line-height: 1.5; }
+
+  /* Letter Spacing */
+  .ls-normal { letter-spacing: normal; }
+  .ls-27 { letter-spacing: 0.27px; }
+  .ls-32 { letter-spacing: 0.32px; }
+  .ls-34 { letter-spacing: 0.34px; }
+  .ls-41 { letter-spacing: 0.41px; }
+
+  /* Text Colors */
+  .text-black { color: #000; }
+  .text-dark-blue { color: #0e0941; }
+  .text-primary { color: #fb004e; }
+
+  /* Titles */
+  .title {
+    @extend .font-montserrat, .font-28, .fw-bold, .text-black;
+    margin-bottom: 10px; 
+  }
+
+  .sub-title {
+    @extend .font-montserrat, .font-20, .fw-bold, .text-black;
+    margin-bottom: 20px; 
+  }
+
+  /* Descriptions */
+  .description {
+    @extend .font-montserrat, .font-16, .fw-medium, .text-black, .lh-1-5;
+  }
+
+  .bold-description {
+    @extend .font-montserrat, .font-16, .fw-semibold, .text-black, .lh-1-5;
+  }
+
+  .card-title {
+    @extend .font-montserrat, .font-24, .fw-bold, .text-black;
+  }
+
+  .card-description {
+    @extend .font-montserrat, .font-16, .fw-normal, .text-dark-blue, .lh-1-5;
+  }
+
+  .list-description {
+    @extend .description;
+    padding-left: 39px;
+  }
+
+  /* List Items */
+  .list-item {
+    @extend .font-montserrat, .font-16, .fw-normal, .text-black, .lh-1-5;
+  }
+
+  .baner-list-item {
+    @extend .list-item;
+    padding-left: 19px;
+  }
+  .baner-list-item:before {
+    left: 0;
+  }
+
+  /* Links */
+  a {
+    font-weight: 600;
+    color: #fb004e !important;
+  }
+
+  /* Two Column List */
+  .list-column {
+    column-count: 2;
+  }
+}
