@@ -37,7 +37,8 @@
         "shared.image",
         "shared.holiday-calender",
         "stream.stream-card-grid",
-        "stream.company-policy"
+        "stream.company-policy",
+        "page.google-sheet"
       ]
     }
   }

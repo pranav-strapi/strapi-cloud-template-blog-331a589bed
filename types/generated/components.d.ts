@@ -22,6 +22,16 @@ export interface PageBreadcrumb extends Struct.ComponentSchema {
   };
 }
 
+export interface PageGoogleSheet extends Struct.ComponentSchema {
+  collectionName: 'components_page_google_sheets';
+  info: {
+    displayName: 'googleSheet';
+  };
+  attributes: {
+    googleSheetLink: Schema.Attribute.String;
+  };
+}
+
 export interface SharedFooter extends Struct.ComponentSchema {
   collectionName: 'components_shared_footers';
   info: {
@@ -246,6 +256,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'layout.menu-group': LayoutMenuGroup;
       'page.breadcrumb': PageBreadcrumb;
+      'page.google-sheet': PageGoogleSheet;
       'shared.footer': SharedFooter;
       'shared.header': SharedHeader;
       'shared.header-content': SharedHeaderContent;
