@@ -193,7 +193,7 @@ export interface SharedTextEditor extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'defaultHtml';
         }
       >;
   };
@@ -211,7 +211,7 @@ export interface StreamCompanyPolicy extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'defaultHtml';
         }
       >;
     title: Schema.Attribute.String;
@@ -221,6 +221,7 @@ export interface StreamCompanyPolicy extends Struct.ComponentSchema {
 export interface StreamStreamCard extends Struct.ComponentSchema {
   collectionName: 'components_stream_stream_cards';
   info: {
+    description: '';
     displayName: 'StreamCard';
   };
   attributes: {
@@ -229,7 +230,7 @@ export interface StreamStreamCard extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'defaultHtml';
         }
       >;
     image: Schema.Attribute.Media<
