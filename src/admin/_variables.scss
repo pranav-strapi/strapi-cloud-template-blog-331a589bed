@@ -1,0 +1,38 @@
+$font-sizes: (
+  "heading1": 32px,
+  "heading2": 24px,
+  "heading3": 22px,
+  "heading4": 25px,
+  "heading5": 30px,
+  "subText1": 20px,
+  "subText2": 18px,
+  "subText3": 17px,
+  "subText4": 16px,
+  "bodyText1": 14px,
+  "bodyText2": 13px,
+  "bodyText3": 12px,
+  "bodyText4": 15px
+);
+
+$font-weights: (
+  "extraBold": 800,
+  "semiBold": 600,
+  "bold": 700,
+  "sectionHeadingsLink": 500,
+  "bodyText1": 400,
+  "bodyText2": 300
+);
+
+$alignments: (
+  "left": left,
+  "right": right,
+  "center": center
+);
+
+$breakpointSmall: 480px;
+$breakpointMedium: 768px;
+$breakpointLarge: 1024px;
+$breakpointSmallScreenMaxWidthLimit: 479px;
+$breakpointMediumScreenMinWidthLimit: 767px;
+$breakpointMediumScreenMaxWidthLimit: 1023px;
+$breakpointLargeScreenMaxWidthLimit: 1400px;

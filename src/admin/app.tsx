@@ -1,6 +1,10 @@
 import './custom.scss';
 import { defaultHtmlPreset, setPluginConfig } from '@_sh/strapi-plugin-ckeditor';
 import { GeneralHtmlSupport } from 'ckeditor5';
+const customStyles = document.createElement('link');
+customStyles.href = '/admin/custom.css';
+customStyles.rel = 'stylesheet';
+document.head.appendChild(customStyles); // TODO: Need to check alternative  solution for this
 const modifiedHtmlPreset = {
   ...defaultHtmlPreset,
   description: 'Modified default HTML editor with Montserrat font family',
@@ -88,6 +92,7 @@ const modifiedHtmlPreset = {
       definitions: [
         { name: 'Title', element: 'p', classes: ['title'] },
         { name: 'Sub-title', element: 'p', classes: ['sub-title'] },
+        { name: 'Sub-title-list', element: 'li', classes: ['sub-title'] },
         { name: 'Description', element: 'p', classes: ['description'] },
         { name: 'Bold Description', element: 'p', classes: ['bold-description'] },
         { name: 'Card Title', element: 'p', classes: ['card-title'] },
