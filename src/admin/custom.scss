@@ -7,100 +7,102 @@ $fontFamilyRegular: "Montserrat";
 .ck-editor__main ul {
   margin: 0 !important;
 }
+
 .ck-content {
   font-size: 16px;
   font-family: $fontFamilyRegular;
-  
-    ul {
-      li {
-        list-style: none;
-        padding-left: 39px;
-        position: relative;
-        line-height: 1.5em;
-      }
-      
-      li:before {
-        content: " ";
-        left: 20px;
-        position: absolute;
-        height: 11px;
-        aspect-ratio: cos(30deg);
-        top: calc((1.5em - 11px) / 2);
-        clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
-        background: #fb004e;
-      }
+
+  ul {
+    li {
+      list-style: none;
+      padding-left: 39px;
+      position: relative;
+      line-height: 1.5em;
     }
-  
+
+    li:before {
+      content: " ";
+      left: 20px;
+      position: absolute;
+      height: 11px;
+      /* adjust to control the size  */
+      aspect-ratio: cos(30deg);
+      top: calc((1.5em - 11px) / 2);
+      clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
+      background: $red;
+    }
+  }
+
   /* Titles */
   .title {
     font-size: map.get($font-sizes, "heading1");
     font-weight: map.get($font-weights, "bold");
-    color: #000;
+    color: $black;
     margin-bottom: 10px;
   }
-  
+
   .sub-title {
     font-size: map.get($font-sizes, "heading2");
     font-weight: map.get($font-weights, "bold");
-    color: #000;
+    color: $black;
     margin-bottom: 20px;
   }
-  
+
   /* Descriptions */
   .description {
     font-size: map.get($font-sizes, "subText4");
     font-weight: map.get($font-weights, "bodyText1");
-    color: #000;
+    color: $black;
     line-height: 1.5;
   }
-  
+
   .bold-description {
     font-size: map.get($font-sizes, "subText4");
     font-weight: map.get($font-weights, "semiBold");
-    color: #000;
+    color: $black;
     line-height: 1.5;
   }
-  
+
   .card-title {
     font-size: map.get($font-sizes, "heading2");
     font-weight: map.get($font-weights, "bold");
-    color: #000;
+    color: $black;
   }
-  
+
   .card-description {
     font-size: map.get($font-sizes, "subText4");
     font-weight: map.get($font-weights, "bodyText1");
-    color: #0e0941;
+    color: $deep-navy;
     line-height: 1.5;
   }
-  
+
   .list-description {
     @extend .description;
     padding-left: 39px;
   }
-  
+
   .list-item {
     font-size: map.get($font-sizes, "subText4");
     font-weight: map.get($font-weights, "bodyText1");
-    color: #000;
+    color: $black;
     line-height: 1.5;
   }
-  
+
   .baner-list-item {
     @extend .list-item;
     padding-left: 19px;
   }
-  
+
   .baner-list-item:before {
     left: 0;
   }
-  
+
   /* Links */
   a {
     font-weight: map.get($font-weights, "semiBold");
-    color: #fb004e !important;
+    color: $red !important;
   }
-  
+
   /* Two Column List */
   .list-column {
     column-count: 2;
