@@ -430,13 +430,13 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiKudosKudos extends Struct.CollectionTypeSchema {
-  collectionName: 'kudoses';
+export interface ApiKudosDetailKudosDetail extends Struct.CollectionTypeSchema {
+  collectionName: 'kudos-detail';
   info: {
     description: '';
     displayName: 'Workplace.Kudos';
-    pluralName: 'kudoses';
-    singularName: 'kudos';
+    pluralName: 'kudos';
+    singularName: 'kudos-detail';
   };
   options: {
     draftAndPublish: true;
@@ -449,7 +449,10 @@ export interface ApiKudosKudos extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     date: Schema.Attribute.Date & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::kudos.kudos'> &
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kudos-detail.kudos-detail'
+    > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
@@ -1077,7 +1080,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::burst.burst': ApiBurstBurst;
       'api::home-page.home-page': ApiHomePageHomePage;
-      'api::kudos.kudos': ApiKudosKudos;
+      'api::kudos-detail.kudos-detail': ApiKudosDetailKudosDetail;
       'api::layout.layout': ApiLayoutLayout;
       'api::page.page': ApiPagePage;
       'api::snapshot.snapshot': ApiSnapshotSnapshot;

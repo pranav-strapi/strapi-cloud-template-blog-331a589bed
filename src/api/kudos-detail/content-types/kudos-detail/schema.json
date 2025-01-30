@@ -1,9 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "kudoses",
+  "collectionName": "kudos-detail",
   "info": {
-    "singularName": "kudos",
-    "pluralName": "kudoses",
+    "singularName": "kudos-detail",
+    "pluralName": "kudos",
     "displayName": "Workplace.Kudos",
     "description": ""
   },
@@ -22,9 +22,7 @@
     },
     "blocks": {
       "type": "dynamiczone",
-      "components": [
-        "shared.text-editor"
-      ],
+      "components": ["shared.text-editor"],
       "required": true
     }
   }
