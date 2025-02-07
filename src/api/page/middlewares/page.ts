@@ -44,6 +44,9 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
               "stream.company-policy": {
                 populate: "*", // Populate all fields in the company policy component
               },
+              "page.google-sheet": {
+                populate: "*", // Populate all fields in the page.google-sheet component
+              },
             },
           },
         },
