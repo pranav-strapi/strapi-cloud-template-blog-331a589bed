@@ -40,6 +40,9 @@
         "stream.company-policy",
         "page.google-sheet"
       ]
+    },
+    "showDownloadButton": {
+      "type": "boolean"
     }
   }
 }
