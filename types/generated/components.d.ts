@@ -1,5 +1,38 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface HolidayCalendarHolidayCalendar extends Struct.ComponentSchema {
+  collectionName: 'components_holiday_calendar_holiday_calendars';
+  info: {
+    description: '';
+    displayName: 'HolidayCalendar';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    holiday: Schema.Attribute.Component<'shared.holiday', true>;
+    holidayPosition: Schema.Attribute.Enumeration<['Right', 'Left']>;
+    image: Schema.Attribute.Media<'images'>;
+    regionalLocation: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::workplace-regional-location.workplace-regional-location'
+    >;
+  };
+}
+
+export interface HolidayCalendarHolidayCalendarList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_holiday_calendar_holiday_calendar_lists';
+  info: {
+    description: '';
+    displayName: 'HolidayCalendarList';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<
+      'holiday-calendar.holiday-calendar',
+      true
+    >;
+  };
+}
+
 export interface LayoutMenuGroup extends Struct.ComponentSchema {
   collectionName: 'components_layout_menu_groups';
   info: {
@@ -29,6 +62,24 @@ export interface PageGoogleSheet extends Struct.ComponentSchema {
   };
   attributes: {
     googleSheetLink: Schema.Attribute.String;
+  };
+}
+
+export interface PageSortingOptionSelector extends Struct.ComponentSchema {
+  collectionName: 'components_page_sorting_option_selectors';
+  info: {
+    displayName: 'sortingOptionSelector';
+    icon: 'arrowUp';
+  };
+  attributes: {
+    componentName: Schema.Attribute.Enumeration<
+      ['AccordionList', 'HolidayCalendarList']
+    >;
+    enableLocationSorting: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    sortingLocationType: Schema.Attribute.Enumeration<
+      ['regionalLocation', 'globalLocation']
+    >;
   };
 }
 
@@ -81,21 +132,6 @@ export interface SharedHoliday extends Struct.ComponentSchema {
   attributes: {
     date: Schema.Attribute.Date;
     holidayName: Schema.Attribute.String;
-  };
-}
-
-export interface SharedHolidayCalender extends Struct.ComponentSchema {
-  collectionName: 'components_shared_holiday_calenders';
-  info: {
-    description: '';
-    displayName: 'holidayCalender';
-  };
-  attributes: {
-    description: Schema.Attribute.String;
-    holiday: Schema.Attribute.Component<'shared.holiday', true>;
-    holidayPosition: Schema.Attribute.Enumeration<['Right', 'Left']>;
-    image: Schema.Attribute.Media<'images'>;
-    location: Schema.Attribute.Enumeration<['Kerala', 'Chennai', 'Banglore']>;
   };
 }
 
@@ -255,14 +291,16 @@ export interface StreamStreamCardGrid extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'holiday-calendar.holiday-calendar': HolidayCalendarHolidayCalendar;
+      'holiday-calendar.holiday-calendar-list': HolidayCalendarHolidayCalendarList;
       'layout.menu-group': LayoutMenuGroup;
       'page.breadcrumb': PageBreadcrumb;
       'page.google-sheet': PageGoogleSheet;
+      'page.sorting-option-selector': PageSortingOptionSelector;
       'shared.footer': SharedFooter;
       'shared.header': SharedHeader;
       'shared.header-content': SharedHeaderContent;
       'shared.holiday': SharedHoliday;
-      'shared.holiday-calender': SharedHolidayCalender;
       'shared.image': SharedImage;
       'shared.image-slider': SharedImageSlider;
       'shared.links': SharedLinks;

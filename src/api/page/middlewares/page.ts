@@ -17,6 +17,9 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
               description: true, // Populate the 'description' field in the banner component
             },
           },
+          sortingSelector: {
+            populate: '*',
+          },
           blocks: {
             on: {
               "shared.text-editor": {
@@ -28,8 +31,12 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
               "shared.image": {
                 populate: "*", // Populate all fields in the shared image component
               },
-              "shared.holiday-calender": {
-                populate: "*", // Populate all fields in the holiday calendar component
+             "holiday-calendar.holiday-calendar-list": {
+                populate: {
+                  items: {
+                    populate: '*'
+                  }
+                }
               },
               "stream.stream-card-grid": {
                 populate: {
@@ -49,6 +56,7 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
         },
       };
     }
+    console.log("Query after middleware:", JSON.stringify(ctx.query, null, 2));
 
     // Proceed to the next middleware or controller
     await next();

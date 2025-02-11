@@ -510,10 +510,10 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'shared.text-editor',
         'shared.main-page-overview',
         'shared.image',
-        'shared.holiday-calender',
         'stream.stream-card-grid',
         'stream.company-policy',
         'page.google-sheet',
+        'holiday-calendar.holiday-calendar-list',
       ]
     >;
     breadcrumbs: Schema.Attribute.Component<'page.breadcrumb', true>;
@@ -526,6 +526,10 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     showDownloadButton: Schema.Attribute.Boolean;
     slug: Schema.Attribute.UID<'title'>;
+    sortingSelector: Schema.Attribute.Component<
+      'page.sorting-option-selector',
+      false
+    >;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -567,6 +571,110 @@ export interface ApiSnapshotSnapshot extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWorkplaceGlobalLocationWorkplaceGlobalLocation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'workplace_global_locations';
+  info: {
+    displayName: 'Workplace.globalLocation';
+    pluralName: 'workplace-global-locations';
+    singularName: 'workplace-global-location';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::workplace-global-location.workplace-global-location'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    workplaceOfficeLocations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::workplace-office-location.workplace-office-location'
+    >;
+  };
+}
+
+export interface ApiWorkplaceOfficeLocationWorkplaceOfficeLocation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'workplace_office_locations';
+  info: {
+    description: '';
+    displayName: 'Workplace.OfficeLocation';
+    pluralName: 'workplace-office-locations';
+    singularName: 'workplace-office-location';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    globalLocation: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::workplace-global-location.workplace-global-location'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::workplace-office-location.workplace-office-location'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    regionalLocation: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::workplace-regional-location.workplace-regional-location'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWorkplaceRegionalLocationWorkplaceRegionalLocation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'workplace_regional_locations';
+  info: {
+    displayName: 'Workplace.regionalLocation';
+    pluralName: 'workplace-regional-locations';
+    singularName: 'workplace-regional-location';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::workplace-regional-location.workplace-regional-location'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    workplaceOfficeLocations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::workplace-office-location.workplace-office-location'
+    >;
   };
 }
 
@@ -1085,6 +1193,9 @@ declare module '@strapi/strapi' {
       'api::layout.layout': ApiLayoutLayout;
       'api::page.page': ApiPagePage;
       'api::snapshot.snapshot': ApiSnapshotSnapshot;
+      'api::workplace-global-location.workplace-global-location': ApiWorkplaceGlobalLocationWorkplaceGlobalLocation;
+      'api::workplace-office-location.workplace-office-location': ApiWorkplaceOfficeLocationWorkplaceOfficeLocation;
+      'api::workplace-regional-location.workplace-regional-location': ApiWorkplaceRegionalLocationWorkplaceRegionalLocation;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
