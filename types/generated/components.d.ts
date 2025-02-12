@@ -83,6 +83,39 @@ export interface PageSortingOptionSelector extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedAccordian extends Struct.ComponentSchema {
+  collectionName: 'components_shared_accordians';
+  info: {
+    description: '';
+    displayName: 'Accordion';
+    icon: 'bulletList';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    globalLocation: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::workplace-global-location.workplace-global-location'
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedAccordionList extends Struct.ComponentSchema {
+  collectionName: 'components_shared_accordion_lists';
+  info: {
+    displayName: 'AccordionList';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'shared.accordian', true>;
+  };
+}
+
 export interface SharedFooter extends Struct.ComponentSchema {
   collectionName: 'components_shared_footers';
   info: {
@@ -297,6 +330,8 @@ declare module '@strapi/strapi' {
       'page.breadcrumb': PageBreadcrumb;
       'page.google-sheet': PageGoogleSheet;
       'page.sorting-option-selector': PageSortingOptionSelector;
+      'shared.accordian': SharedAccordian;
+      'shared.accordion-list': SharedAccordionList;
       'shared.footer': SharedFooter;
       'shared.header': SharedHeader;
       'shared.header-content': SharedHeaderContent;

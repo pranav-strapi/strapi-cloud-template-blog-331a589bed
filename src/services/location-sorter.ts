@@ -20,10 +20,10 @@ export async function prioritizeByRegionalLocation(items: any[], userLocation: s
   if(!officeRecords || officeRecords.length === 0) return items;
   const sortingLocation = officeRecords[0][locType].name;
   const matching = items.filter(item =>
-    item.regionalLocation && item[locType].name === sortingLocation
+    item[locType]?.name === sortingLocation
   );
   const nonMatching = items.filter(item =>
-    !item.regionalLocation || item[locType].name !== sortingLocation
+    !item[locType] || item[locType].name !== sortingLocation
   );
 
   return [...matching, ...nonMatching];

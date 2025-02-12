@@ -38,7 +38,8 @@
         "stream.stream-card-grid",
         "stream.company-policy",
         "page.google-sheet",
-        "holiday-calendar.holiday-calendar-list"
+        "holiday-calendar.holiday-calendar-list",
+        "shared.accordion-list"
       ]
     },
     "showDownloadButton": {

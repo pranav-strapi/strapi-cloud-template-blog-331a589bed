@@ -11,19 +11,20 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
 
     const componentNames = {
       'HolidayCalendarList': 'holiday-calendar.holiday-calendar-list',
+      'AccordionList': 'shared.accordion-list',
     };
 
     // Use Promise.all to handle asynchronous operations
     const updatedData = await Promise.all(data.map(async (page) => {
-      const { sortingSelector } = page;
+      const { sortingSelector, ...restPage } = page;
       if (
         sortingSelector &&
         sortingSelector.enableLocationSorting &&
         sortingSelector.componentName &&
-        Array.isArray(page.blocks)
+        Array.isArray(restPage.blocks)
       ) {
         // Use Promise.all here as well to handle async operations in blocks
-        page.blocks = await Promise.all(page.blocks.map(async (component) => {
+        restPage.blocks = await Promise.all(restPage.blocks.map(async (component) => {
           if (
             component.__component === componentNames[sortingSelector.componentName] &&
             Array.isArray(component.items)
@@ -37,7 +38,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
           return component;
         }));
       }
-      return page;
+      return restPage;
     }));
 
     // Return the modified response.

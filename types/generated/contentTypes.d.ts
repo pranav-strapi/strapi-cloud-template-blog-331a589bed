@@ -514,6 +514,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'stream.company-policy',
         'page.google-sheet',
         'holiday-calendar.holiday-calendar-list',
+        'shared.accordion-list',
       ]
     >;
     breadcrumbs: Schema.Attribute.Component<'page.breadcrumb', true>;

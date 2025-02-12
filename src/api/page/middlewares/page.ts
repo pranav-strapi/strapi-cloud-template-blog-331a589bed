@@ -38,6 +38,13 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
                   }
                 }
               },
+              "shared.accordion-list": {
+                populate: {
+                  items: {
+                    populate: '*'
+                  }
+                }
+              },
               "stream.stream-card-grid": {
                 populate: {
                   contents: {
