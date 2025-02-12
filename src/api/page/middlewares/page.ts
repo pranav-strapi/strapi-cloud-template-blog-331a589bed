@@ -23,10 +23,7 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
                 populate: "*", // Populate all fields in the text editor component
               },
               "shared.main-page-overview": {
-                populate: {
-                  image: true, // Populate the 'image' field
-                  subPages: true, // Populate the 'subPages' field
-                },
+                populate: "*",
               },
               "shared.image": {
                 populate: "*", // Populate all fields in the shared image component

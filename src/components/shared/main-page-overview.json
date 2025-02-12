@@ -8,15 +8,15 @@
   "options": {},
   "attributes": {
     "description": {
-      "type": "text"
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.text-editor"
     },
     "image": {
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "subPages": {
       "type": "component",

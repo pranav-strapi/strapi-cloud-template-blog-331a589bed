@@ -145,7 +145,7 @@ export interface SharedMainPageOverview extends Struct.ComponentSchema {
     icon: 'chartBubble';
   };
   attributes: {
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.Component<'shared.text-editor', false>;
     image: Schema.Attribute.Media<'images', true>;
     subPages: Schema.Attribute.Component<'shared.links', true>;
   };
