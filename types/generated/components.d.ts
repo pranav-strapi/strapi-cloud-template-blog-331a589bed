@@ -58,10 +58,12 @@ export interface PageBreadcrumb extends Struct.ComponentSchema {
 export interface PageGoogleSheet extends Struct.ComponentSchema {
   collectionName: 'components_page_google_sheets';
   info: {
+    description: '';
     displayName: 'googleSheet';
   };
   attributes: {
     googleSheetLink: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
