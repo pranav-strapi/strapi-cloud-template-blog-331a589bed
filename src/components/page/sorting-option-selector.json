@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_page_sorting_option_selectors",
+  "info": {
+    "displayName": "sortingOptionSelector",
+    "icon": "arrowUp"
+  },
+  "options": {},
+  "attributes": {
+    "enableLocationSorting": {
+      "type": "boolean",
+      "default": false
+    },
+    "sortingLocationType": {
+      "type": "enumeration",
+      "enum": [
+        "regionalLocation",
+        "globalLocation"
+      ]
+    },
+    "componentName": {
+      "type": "enumeration",
+      "enum": [
+        "AccordionList",
+        "HolidayCalendarList"
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_accordion_lists",
+  "info": {
+    "displayName": "AccordionList"
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.accordian"
+    }
+  }
+}
