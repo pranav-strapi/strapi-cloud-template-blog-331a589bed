@@ -13,7 +13,12 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
         if (hasFilter) {
           // If a filter is present, only show slug and breadcrumbs
           ctx.query = {
-            ...ctx.query, // Preserve existing query parameters
+            ...ctx.query,
+            populate: {
+              breadcrumbs: {
+                populate: "*", // Populate all fields in breadcrumbs component
+              }, // Preserve existing query parameters
+            },
           };
         } else {
           // Default population for all fields if no filter is present
