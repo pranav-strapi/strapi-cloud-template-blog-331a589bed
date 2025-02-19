@@ -411,7 +411,9 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   };
   attributes: {
     actionLinks: Schema.Attribute.Component<'shared.links', true>;
-    bannerImage: Schema.Attribute.Component<'shared.image', false>;
+    bannerType: Schema.Attribute.DynamicZone<
+      ['shared.image', 'shared.text-editor']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

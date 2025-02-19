@@ -22,15 +22,17 @@
       "repeatable": true,
       "component": "shared.links"
     },
-    "bannerImage": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.image"
-    },
     "portalLinks": {
       "type": "component",
       "repeatable": true,
       "component": "shared.links"
+    },
+    "bannerType": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.image",
+        "shared.text-editor"
+      ]
     }
   }
 }
