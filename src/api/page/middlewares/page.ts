@@ -66,9 +66,6 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
             },
           };
         }
-
-        // Log the final query for debugging
-        strapi.log.info("Final Query:", JSON.stringify(ctx.query));
       }
 
       // Proceed to the next middleware or controller
