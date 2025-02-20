@@ -2,8 +2,8 @@ import { Core } from "@strapi/strapi";
 
 export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
   return async (ctx: any, next: () => Promise<void>) => {
+    // Check if the request is targeting the `/api/pages` endpoint
     try {
-      // Check if the request is targeting the `/api/pages` endpoint
       if (ctx.request.url.startsWith("/api/pages")) {
         // Check if any filter is applied
         const hasFilter = Object.keys(ctx.query).some((param) =>
@@ -21,7 +21,7 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
             },
           };
         } else {
-          // Default population for all fields if no filter is present
+          // Extend the query to include population for all required fields
           ctx.query = {
             ...ctx.query, // Preserve existing query parameters
             populate: {
@@ -56,15 +56,15 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
                     },
                   },
                   "shared.accordion-list": {
-                    items: {
-                      populate: "*",
+                    populate: {
+                      items: {
+                        populate: "*",
+                      },
                     },
                   },
                   "stream.stream-card-grid": {
                     populate: {
-                      contents: {
-                        populate: "*",
-                      },
+                      contents: { populate: "*" },
                     },
                   },
                   "stream.company-policy": {
@@ -78,21 +78,24 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
             },
           };
         }
+
+        console.log(
+          "Query after middleware:",
+          JSON.stringify(ctx.query, null, 2)
+        );
       }
-      console.log(
-        "Query after middleware:",
-        JSON.stringify(ctx.query, null, 2)
-      );
+
       // Proceed to the next middleware or controller
       await next();
     } catch (error) {
-      // Detailed error logging
+      strapi.log.error("Error in pages middleware:", error);
+
+      ctx.status = 500;
       ctx.body = {
         status: 500,
         error: "Internal Server Error",
         details: error.message,
       };
-      ctx.status = 500;
     }
   };
 };
