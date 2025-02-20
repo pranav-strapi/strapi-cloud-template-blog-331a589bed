@@ -45,7 +45,7 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
                   "shared.image": {
                     populate: "*", // Populate all fields in the shared image component
                   },
-                  "shared.holiday-calender": {
+                  "shared.holiday-calendar": {
                     populate: "*", // Populate all fields in the holiday calendar component
                   },
                   "stream.stream-card-grid": {
