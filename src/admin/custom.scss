@@ -33,6 +33,76 @@ $fontFamilyRegular: "Montserrat";
     }
   }
 
+  /* Global Table Styling */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+  border: solid 1px #66696b;
+}
+
+/* First Row of tbody as Header */
+tbody tr:first-child {
+  background-color: #1f2225; /* Dark background */
+  color: #ffffff; /* White text */
+  font-weight: bold;
+  height: 80px;
+}
+
+/* Style for Table Header Cells */
+tbody tr:first-child td {
+  padding: 20px;
+  font-family: MontserratRoman, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.32px;
+  text-align: left;
+  border-bottom: 2px solid #66696b !important;
+  color: #fff;
+}
+
+/* Table Data Cells */
+td {
+  font-family: MontserratRoman, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: 0.32px;
+  color: #1f2225;
+  padding: 20px;
+  border-bottom: 1px solid #66696b !important;
+  vertical-align: middle !important; /* ✅ Vertically center text */
+  display: table-cell;
+  padding: 0px 12px !important;
+}
+
+/* First Column (Serial No.) */
+td:first-child {
+  border-right: 1px solid #66696b;
+  border-radius: 10px 0 0 0 !important;
+}
+
+/* Last Column */
+td:last-child {
+  border-radius: 0 10px 0 0 !important;
+}
+
+/* Hover Effect */
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+
   /* Titles */
   .title {
     font-size: map.get($font-sizes, "heading1");

@@ -1,11 +1,15 @@
 {
   "collectionName": "components_page_google_sheets",
   "info": {
-    "displayName": "googleSheet"
+    "displayName": "googleSheet",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "googleSheetLink": {
+      "type": "string"
+    },
+    "title": {
       "type": "string"
     }
   }

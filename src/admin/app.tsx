@@ -31,6 +31,7 @@ const modifiedHtmlPreset = {
       '|',
       'imageUpload',
       'blockQuote',
+      'insertTable',
       '|',
       'undo',
       'redo',

@@ -1,19 +1,11 @@
 {
-  "collectionName": "components_shared_holiday_calenders",
+  "collectionName": "components_holiday_calendar_holiday_calendars",
   "info": {
-    "displayName": "holidayCalender",
+    "displayName": "HolidayCalendar",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "location": {
-      "type": "enumeration",
-      "enum": [
-        "Kerala",
-        "Chennai",
-        "Banglore"
-      ]
-    },
     "description": {
       "type": "string"
     },
@@ -30,11 +22,17 @@
       ]
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "regionalLocation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::workplace-regional-location.workplace-regional-location"
     }
   }
 }
