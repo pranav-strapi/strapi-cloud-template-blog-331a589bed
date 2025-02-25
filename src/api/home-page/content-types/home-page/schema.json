@@ -33,6 +33,11 @@
         "shared.image",
         "shared.text-editor"
       ]
+    },
+    "banner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.page-banner"
     }
   }
 }
