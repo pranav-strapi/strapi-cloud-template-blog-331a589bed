@@ -173,11 +173,15 @@ export interface SharedHoliday extends Struct.ComponentSchema {
 export interface SharedImage extends Struct.ComponentSchema {
   collectionName: 'components_shared_images';
   info: {
+    description: '';
     displayName: 'Image';
     icon: 'cog';
   };
   attributes: {
     image: Schema.Attribute.Media<'images'>;
+    mobileViewImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
   };
 }
 
