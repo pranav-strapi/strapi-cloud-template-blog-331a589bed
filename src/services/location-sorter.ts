@@ -7,7 +7,7 @@
  * @param userRegionalLocation - The name of the user's regional location.
  * @returns The sorted items array.
  */
-export async function prioritizeByRegionalLocation(items: any[], userLocation: string, locType: string): Promise<any[]> {
+export async function prioritizeByRegionalLocation(items: any[], userLocation: string = "Vazhuthacaud, Trivandrum", locType: string): Promise<any[]> {
   if (!userLocation || !Array.isArray(items)) return items;
   const officeRecords = await strapi.documents('api::workplace-office-location.workplace-office-location').findMany({
     filters: { name: userLocation },
@@ -27,4 +27,15 @@ export async function prioritizeByRegionalLocation(items: any[], userLocation: s
   );
 
   return [...matching, ...nonMatching];
+}
+
+export async function getRegionalLocation(userLocation: string = "Vazhuthacaud, Trivandrum"): Promise<string> {
+  const officeRecords = await strapi.documents('api::workplace-office-location.workplace-office-location').findMany({
+    filters: { name: userLocation },
+    populate: {
+      regionalLocation: true
+    }
+  });
+
+  return officeRecords[0].regionalLocation.name;
 }
