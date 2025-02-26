@@ -17,11 +17,16 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
         quickLinks: {
           populate: "*", // Populate all fields of the `quickLinks` component
         },
-        bannerImage: {
-          populate: "*", // Populate all fields of the `bannerImage` component
+        bannerType: {
+          populate: "*", // Populate all fields of the `quickLinks` component
         },
         portalLinks: {
           populate: "*", // Populate all fields of the `portalLinks` component
+        },
+        banner: {
+          populate: {
+            image: true, // Populate the 'image' field in the banner component
+          },
         },
       };
     }

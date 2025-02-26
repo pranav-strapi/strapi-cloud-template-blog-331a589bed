@@ -35,11 +35,20 @@
         "shared.text-editor",
         "shared.main-page-overview",
         "shared.image",
-        "shared.holiday-calender",
         "stream.stream-card-grid",
         "stream.company-policy",
-        "page.google-sheet"
+        "page.google-sheet",
+        "holiday-calendar.holiday-calendar-list",
+        "shared.accordion-list"
       ]
+    },
+    "showDownloadButton": {
+      "type": "boolean"
+    },
+    "sortingSelector": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page.sorting-option-selector"
     }
   }
 }

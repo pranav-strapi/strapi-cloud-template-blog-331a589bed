@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_holiday_calendar_holiday_calendar_lists",
+  "info": {
+    "displayName": "HolidayCalendarList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "holiday-calendar.holiday-calendar"
+    }
+  }
+}

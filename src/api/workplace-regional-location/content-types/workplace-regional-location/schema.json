@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "workplace_regional_locations",
+  "info": {
+    "singularName": "workplace-regional-location",
+    "pluralName": "workplace-regional-locations",
+    "displayName": "Workplace.regionalLocation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "workplaceOfficeLocations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::workplace-office-location.workplace-office-location",
+      "mappedBy": "regionalLocation"
+    }
+  }
+}

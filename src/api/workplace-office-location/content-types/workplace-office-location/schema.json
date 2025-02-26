@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "workplace_office_locations",
+  "info": {
+    "singularName": "workplace-office-location",
+    "pluralName": "workplace-office-locations",
+    "displayName": "Workplace.OfficeLocation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "regionalLocation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::workplace-regional-location.workplace-regional-location",
+      "inversedBy": "workplaceOfficeLocations"
+    },
+    "globalLocation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::workplace-global-location.workplace-global-location",
+      "inversedBy": "workplaceOfficeLocations"
+    }
+  }
+}
