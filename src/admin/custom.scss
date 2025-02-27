@@ -1,6 +1,6 @@
 @use "./variables" as *;
 @use "sass:map";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 $fontFamilyRegular: "Montserrat";
 /* Add this in custom.css to check */
 
@@ -176,5 +176,21 @@ tbody tr:hover {
   /* Two Column List */
   .list-column {
     column-count: 2;
+  }
+  .banner-sub-title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500; // Medium weight
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.27px;
+  }
+  .banner-description {
+    font-family: "Montserrat";
+    font-style: italic;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    text-transform: capitalize; // Capitalizes the first letter of each word
+    color: #000000; // Black color
   }
 }
