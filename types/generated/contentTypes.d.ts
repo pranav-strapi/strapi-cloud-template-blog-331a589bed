@@ -385,6 +385,7 @@ export interface ApiBurstBurst extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    date: Schema.Attribute.Date;
     description: Schema.Attribute.Text;
     imageSlider: Schema.Attribute.Component<'shared.image-slider', false>;
     isBirthBurst: Schema.Attribute.Boolean;
