@@ -602,6 +602,10 @@ export interface ApiWorkplaceGlobalLocationWorkplaceGlobalLocation
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    regionalLocations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::workplace-regional-location.workplace-regional-location'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -654,6 +658,7 @@ export interface ApiWorkplaceRegionalLocationWorkplaceRegionalLocation
   extends Struct.CollectionTypeSchema {
   collectionName: 'workplace_regional_locations';
   info: {
+    description: '';
     displayName: 'Workplace.regionalLocation';
     pluralName: 'workplace-regional-locations';
     singularName: 'workplace-regional-location';
@@ -662,9 +667,14 @@ export interface ApiWorkplaceRegionalLocationWorkplaceRegionalLocation
     draftAndPublish: true;
   };
   attributes: {
+    code: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    globalLocation: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::workplace-global-location.workplace-global-location'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

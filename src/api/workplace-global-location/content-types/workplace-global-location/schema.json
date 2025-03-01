@@ -19,6 +19,12 @@
       "relation": "oneToMany",
       "target": "api::workplace-office-location.workplace-office-location",
       "mappedBy": "globalLocation"
+    },
+    "regionalLocations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::workplace-regional-location.workplace-regional-location",
+      "mappedBy": "globalLocation"
     }
   }
 }

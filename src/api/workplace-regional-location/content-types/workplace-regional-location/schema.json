@@ -4,7 +4,8 @@
   "info": {
     "singularName": "workplace-regional-location",
     "pluralName": "workplace-regional-locations",
-    "displayName": "Workplace.regionalLocation"
+    "displayName": "Workplace.regionalLocation",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,15 @@
       "relation": "oneToMany",
       "target": "api::workplace-office-location.workplace-office-location",
       "mappedBy": "regionalLocation"
+    },
+    "code": {
+      "type": "string"
+    },
+    "globalLocation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::workplace-global-location.workplace-global-location",
+      "inversedBy": "regionalLocations"
     }
   }
 }
