@@ -1,5 +1,4 @@
 const { createCoreController } = require('@strapi/strapi').factories;
-const { getRegionalLocation } = require('../../../services/location-sorter');
 
 module.exports = createCoreController('api::home-page.home-page', ({ strapi }) => ({
   async find(ctx) {
@@ -11,10 +10,9 @@ module.exports = createCoreController('api::home-page.home-page', ({ strapi }) =
     
     // Get user location and region
     const userLocation = ctx.request.headers['x-user-location'];
-    const region = await getRegionalLocation(userLocation);
     
     // Find holiday for the user's region
-    const regionHoliday = this.findRegionHoliday(holidayData, region);
+    const regionHoliday = this.findRegionHoliday(holidayData, userLocation);
     
     // Add holiday data to the response
     data.calendar = {
@@ -48,7 +46,7 @@ module.exports = createCoreController('api::home-page.home-page', ({ strapi }) =
   },
 
   findRegionHoliday(holidayData, region) {
-    const holidayItem = holidayData.blocks[0].items.find(item => item.regionalLocation.name === region);
+    const holidayItem = holidayData.blocks[0].items.find(item => item.regionalLocation.code === region);
     return holidayItem ? holidayItem.holiday : null;
   }
 }));
