@@ -235,6 +235,8 @@ export interface SharedPageBanner extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Component<'shared.text-editor', false>;
     image: Schema.Attribute.Media<'images'>;
+    position: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.DefaultTo<'left'>;
     title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<['homePage', 'mainPages', 'subPages']>;
   };
