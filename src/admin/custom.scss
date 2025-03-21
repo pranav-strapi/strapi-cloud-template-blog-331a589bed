@@ -133,6 +133,12 @@ tbody tr:hover {
     line-height: 1.5;
   }
 
+  .kudos-mail {
+    font-size: map.get($font-sizes, "subText4");
+    font-weight: map.get($font-weights, "bold");
+    color: $mail-blue;
+  }
+
   .card-title {
     font-size: map.get($font-sizes, "heading2");
     font-weight: map.get($font-weights, "bold");
