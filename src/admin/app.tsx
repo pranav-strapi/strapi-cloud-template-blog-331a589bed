@@ -38,6 +38,7 @@ const modifiedHtmlPreset = {
       "|",
       "undo",
       "redo",
+      "strapiMediaLib",
     ],
     link: {
       addTargetToExternalLinks: true, // Automatically adds target="_blank" for external links
