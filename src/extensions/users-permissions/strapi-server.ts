@@ -50,14 +50,14 @@ export default (plugin: any) => {
               populate: ['workplaceOfficeLocations']
             });
 
-            ctx.body.user.location = regionalRecord[0].code || 'kl';
+            ctx.body.user.location = regionalRecord[0]?.code || process.env.FALLBACK_USER_LOCATION_CODE;
           } else {
             console.log("⚠️ profileData or profileData.location is undefined");
-            ctx.body.user.location = null;
+            ctx.body.user.location = process.env.FALLBACK_USER_LOCATION_CODE;
           }
         } catch (error) {
           console.error("⚠️ Error fetching location:", error);
-          ctx.body.user.location = null;
+          ctx.body.user.location = process.env.FALLBACK_USER_LOCATION_CODE;
         }
       } else {
         console.log("⚠️ Missing email, user, or jwt:", ctx.body);
