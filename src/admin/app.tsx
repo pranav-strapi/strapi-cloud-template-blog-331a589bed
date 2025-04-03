@@ -114,6 +114,11 @@ const modifiedHtmlPreset = {
         { name: "Sub-title-list", element: "li", classes: ["sub-title"] },
         { name: "Description", element: "p", classes: ["description"] },
         {
+          name: "banner-description-text",
+          element: "p",
+          classes: ["banner-description-text"],
+        },
+        {
           name: "Bold Description",
           element: "p",
           classes: ["bold-description"],

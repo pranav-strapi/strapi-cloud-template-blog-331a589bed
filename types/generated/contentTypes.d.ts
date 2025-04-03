@@ -386,7 +386,13 @@ export interface ApiBurstBurst extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     date: Schema.Attribute.Date;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     imageSlider: Schema.Attribute.Component<'shared.image-slider', false>;
     isBirthBurst: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
