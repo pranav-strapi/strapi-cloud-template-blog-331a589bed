@@ -182,6 +182,10 @@ $fontFamilyRegular: "Montserrat";
     font-weight: map.get($font-weights, "semiBold");
     color: $red !important;
   }
+  .a-banner {
+    font-weight: map.get($font-weights, "semiBold");
+    color: $white !important;
+  }
 
   /* Two Column List */
   .list-column {

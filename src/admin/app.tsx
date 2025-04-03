@@ -153,6 +153,11 @@ const modifiedHtmlPreset = {
           element: "p",
           classes: ["banner-description"],
         },
+        {
+          name: "banner-link",
+          element: "a",
+          classes: ["a-banner"],
+        },
       ],
     },
     htmlSupport: {
