@@ -561,7 +561,7 @@ export interface ApiSnapshotSnapshot extends Struct.CollectionTypeSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'defaultHtml';
         }
       >;
     imageSlider: Schema.Attribute.Component<'shared.image-slider', false>;
