@@ -165,6 +165,10 @@ $fontFamilyRegular: "Montserrat";
     @extend .description;
     padding-left: 39px;
   }
+  .stream-description {
+    @extend .description;
+    font-size: map.get($font-sizes, "subText4");
+  }
 
   .list-item {
     font-size: map.get($font-sizes, "subText4");
