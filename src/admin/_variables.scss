@@ -2,7 +2,7 @@ $font-sizes: (
   "heading1": 32px,
   "heading2": 24px,
   "heading3": 22px,
-  "heading4": 25px,
+  "heading4": 20px,
   "heading5": 30px,
   "subText1": 20px,
   "subText2": 18px,
@@ -11,7 +11,7 @@ $font-sizes: (
   "bodyText1": 14px,
   "bodyText2": 13px,
   "bodyText3": 12px,
-  "bodyText4": 15px
+  "bodyText4": 15px,
 );
 
 $font-weights: (
@@ -20,13 +20,13 @@ $font-weights: (
   "bold": 700,
   "sectionHeadingsLink": 500,
   "bodyText1": 400,
-  "bodyText2": 300
+  "bodyText2": 300,
 );
 
 $alignments: (
   "left": left,
   "right": right,
-  "center": center
+  "center": center,
 );
 
 $breakpointSmall: 480px;
@@ -38,6 +38,9 @@ $breakpointMediumScreenMaxWidthLimit: 1023px;
 $breakpointLargeScreenMaxWidthLimit: 1400px;
 
 $black: #000000;
+$dark-blue: #3129a8;
+$blue: #006fe3;
+$dark-gray: #1c1c1c;
 $white: #ffffff;
 $peach-puff: #ffdab9;
 $red: #fb004e;

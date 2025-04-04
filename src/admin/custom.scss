@@ -104,17 +104,22 @@ $fontFamilyRegular: "Montserrat";
 
   /* Titles */
   .title {
-    font-size: map.get($font-sizes, "heading1");
+    font-size: map.get($font-sizes, "heading2");
     font-weight: map.get($font-weights, "bold");
-    color: $black;
+    color: $dark-blue;
     margin-bottom: 10px;
   }
 
   .sub-title {
-    font-size: map.get($font-sizes, "heading2");
+    font-size: map.get($font-sizes, "heading4");
     font-weight: map.get($font-weights, "bold");
-    color: $black;
+    color: $dark-gray;
     margin-bottom: 20px;
+  }
+  .section-title {
+    font-size: map.get($font-sizes, "subText4");
+    font-weight: map.get($font-weights, "semiBold");
+    color: $blue;
   }
 
   /* Descriptions */
