@@ -114,11 +114,6 @@ const modifiedHtmlPreset = {
         { name: "Sub-title-list", element: "li", classes: ["sub-title"] },
         { name: "section-title", element: "p", classes: ["section-title"] },
         { name: "Description", element: "p", classes: ["description"] },
-        {
-          name: "Stream-description",
-          element: "p",
-          classes: ["stream-description"], //only used for list description in stream page
-        },
 
         {
           name: "banner-description-text",
