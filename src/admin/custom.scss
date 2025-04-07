@@ -118,7 +118,7 @@ $fontFamilyRegular: "Montserrat";
   }
   .section-title {
     font-size: map.get($font-sizes, "subText4");
-    font-weight: map.get($font-weights, "semiBold");
+    font-weight: map.get($font-weights, "bold");
     color: $blue;
   }
 
@@ -194,6 +194,8 @@ $fontFamilyRegular: "Montserrat";
   .a-banner {
     font-weight: map.get($font-weights, "semiBold");
     color: $white !important;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
   }
 
   /* Two Column List */
