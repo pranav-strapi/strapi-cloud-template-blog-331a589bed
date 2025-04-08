@@ -202,6 +202,7 @@ export interface SharedLinks extends Struct.ComponentSchema {
     displayName: 'Links';
   };
   attributes: {
+    hoverImage: Schema.Attribute.Media<'images'>;
     image: Schema.Attribute.Media<'images', true>;
     label: Schema.Attribute.String;
     link: Schema.Attribute.String;

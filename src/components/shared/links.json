@@ -29,6 +29,13 @@
     },
     "link": {
       "type": "string"
+    },
+    "hoverImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
