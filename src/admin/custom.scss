@@ -131,7 +131,8 @@ $fontFamilyRegular: "Montserrat";
   }
   .banner-description-text {
     font-size: map.get($font-sizes, "subText4");
-    font-weight: map.get($font-weights, "bodyText1");
+    font-family: "Montserrat", sans-serif;
+    font-weight: map.get($font-weights, "sectionHeadingsLink");
     color: $white;
     line-height: 1.5;
   }
@@ -187,10 +188,9 @@ $fontFamilyRegular: "Montserrat";
     color: $red !important;
   }
   .a-banner {
+    font-family: "Montserrat", sans-serif;
     font-weight: map.get($font-weights, "semiBold");
     color: $white !important;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600;
   }
 
   /* Two Column List */
