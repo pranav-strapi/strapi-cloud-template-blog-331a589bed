@@ -3,7 +3,7 @@ import {
   defaultHtmlPreset,
   setPluginConfig,
 } from "@_sh/strapi-plugin-ckeditor";
-import { GeneralHtmlSupport } from "ckeditor5";
+import { GeneralHtmlSupport, Indent } from "ckeditor5";
 const customStyles = document.createElement("link");
 customStyles.href = "/admin/custom.css";
 customStyles.rel = "stylesheet";
@@ -16,6 +16,7 @@ const modifiedHtmlPreset = {
     plugins: [
       ...(defaultHtmlPreset.editorConfig.plugins || []),
       GeneralHtmlSupport,
+      Indent,
     ],
     toolbar: [
       "heading",
@@ -39,6 +40,8 @@ const modifiedHtmlPreset = {
       "undo",
       "redo",
       "strapiMediaLib",
+      "indent",
+      "outdent",
     ],
     link: {
       addTargetToExternalLinks: true, // Automatically adds target="_blank" for external links
