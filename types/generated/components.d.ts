@@ -234,6 +234,8 @@ export interface SharedPageBanner extends Struct.ComponentSchema {
     icon: 'archive';
   };
   attributes: {
+    bannerBgImage: Schema.Attribute.Media<'images'>;
+    bannerBgImageMobile: Schema.Attribute.Media<'images'>;
     description: Schema.Attribute.Component<'shared.text-editor', false>;
     image: Schema.Attribute.Media<'images'>;
     position: Schema.Attribute.Enumeration<['left', 'right']> &
