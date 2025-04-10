@@ -128,6 +128,11 @@ const modifiedHtmlPreset = {
           element: "p",
           classes: ["bold-description"],
         },
+        {
+          name: "Bold ordered list",
+          element: "ol",
+          classes: ["bold-description"],
+        },
         { name: "Kudos Mail", element: "p", classes: ["kudos-mail"] },
 
         { name: "Card Title", element: "p", classes: ["card-title"] },

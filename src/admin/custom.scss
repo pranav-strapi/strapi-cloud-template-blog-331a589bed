@@ -17,21 +17,41 @@ $fontFamilyRegular: "Montserrat";
       list-style: none;
       padding-left: 39px;
       position: relative;
-      line-height: 1.5em;
+      line-height: 2em;
     }
-
-    li:before {
+    li span:before, li p:before {
       content: " ";
-      left: 20px;
+      margin-left: -20px;
       position: absolute;
       height: 11px;
-      /* adjust to control the size  */
       aspect-ratio: cos(30deg);
-      top: calc((1.5em - 11px) / 2);
+      top: calc((2em - 11px) / 2);
       clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
       background: $red;
     }
+
+    li:not(:has(p))::before {
+      content: " ";
+      margin-left: -20px;
+      position: absolute;
+      height: 11px;
+      aspect-ratio: cos(30deg);
+      top: calc((2em - 11px) / 2);
+      clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
+      background: $red;
+    }
+
+    li p:has(br[data-cke-filler="true"])::before {
+      content: none !important;
+    }
   }
+
+  ol {
+    list-style-position: inside;
+    li p {
+      display: inline;
+    }
+  } 
 
   /* Global Table Styling */
   table {
@@ -170,7 +190,6 @@ $fontFamilyRegular: "Montserrat";
     font-size: map.get($font-sizes, "subText4");
     font-weight: map.get($font-weights, "bodyText1");
     color: $black;
-    line-height: 1.5;
   }
 
   .baner-list-item {
